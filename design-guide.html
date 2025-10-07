@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Layout Design Guide - Hệ thống định vị trí</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #e2e8f0;
+            overflow-x: auto;
+        }
+
+        /* ===== GRID OVERLAY SYSTEM ===== */
+        .design-container {
+            position: relative;
+            min-height: 100vh;
+            background-image: 
+                linear-gradient(rgba(251, 191, 36, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(251, 191, 36, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* ===== CONTROL PANEL ===== */
+        .control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #fbbf24;
+            z-index: 1000;
+            min-width: 300px;
+        }
+
+        .control-panel h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .toggle-group {
+            margin-bottom: 15px;
+        }
+
+        .toggle-btn {
+            background: rgba(251, 191, 36, 0.2);
+            border: 1px solid #fbbf24;
+            color: #fbbf24;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn.active {
+            background: #fbbf24;
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+
+        /* ===== ZONE DEFINITIONS ===== */
+        .zone {
+            position: absolute;
+            border: 3px solid;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .zone:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+        }
+
+        /* ===== SPECIFIC ZONES ===== */
+        
+        /* HEADER ZONE */
+        .zone-header {
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        /* SIDEBAR ZONES */
+        .zone-sidebar-left {
+            top: 80px;
+            left: 0;
+            width: 250px;
+            bottom: 60px;
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+            color: #10b981;
+        }
+
+        .zone-sidebar-right {
+            top: 80px;
+            right: 0;
+            width: 250px;
+            bottom: 60px;
+            background: rgba(168, 85, 247, 0.2);
+            border-color: #a855f7;
+            color: #a855f7;
+        }
+
+        /* MAIN CONTENT ZONES */
+        .zone-main {
+            top: 80px;
+            left: 250px;
+            right: 250px;
+            bottom: 60px;
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        /* FOOTER ZONE */
+        .zone-footer {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(245, 158, 11, 0.2);
+            border-color: #f59e0b;
+            color: #f59e0b;
+        }
+
+        /* CHARACTER SPECIFIC ZONES */
+        .zone-faction {
+            top: 100px;
+            left: 50px;
+            width: 300px;
+            height: 250px;
+            background: rgba(220, 38, 127, 0.2);
+            border-color: #dc2626;
+            color: #dc2626;
+        }
+
+        .zone-characters {
+            top: 100px;
+            left: 370px;
+            right: 370px;
+            height: 200px;
+            background: rgba(14, 165, 233, 0.2);
+            border-color: #0ea5e9;
+            color: #0ea5e9;
+        }
+
+        .zone-lore {
+            top: 320px;
+            left: 370px;
+            right: 50px;
+            height: 200px;
+            background: rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+            color: #22c55e;
+        }
+
+        .zone-skills {
+            top: 540px;
+            left: 50px;
+            right: 50px;
+            height: 150px;
+            background: rgba(168, 85, 247, 0.2);
+            border-color: #a855f7;
+            color: #a855f7;
+        }
+
+        /* ===== MEASUREMENT LINES ===== */
+        .measurement {
+            position: absolute;
+            border: 1px dashed #fbbf24;
+            opacity: 0.7;
+        }
+
+        .measurement.horizontal {
+            height: 0;
+        }
+
+        .measurement.vertical {
+            width: 0;
+        }
+
+        /* ===== LABELS ===== */
+        .zone-label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fbbf24;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* ===== RESPONSIVE GUIDE ===== */
+        .responsive-guide {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #fbbf24;
+            font-size: 12px;
+        }
+
+        .responsive-guide h4 {
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+
+        .screen-size {
+            color: #10b981;
+            margin: 3px 0;
+        }
+
+        /* ===== HIDDEN STATES ===== */
+        .hidden {
+            display: none !important;
+        }
+
+        /* ===== COORDINATES DISPLAY ===== */
+        .coordinates {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: #fbbf24;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            pointer-events: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="design-container" id="designContainer">
+        
+        <!-- CONTROL PANEL -->
+        <div class="control-panel">
+            <h3>🎯 Design Controls</h3>
+            
+            <div class="toggle-group">
+                <button class="toggle-btn active" onclick="toggleZones('basic')">Basic Layout</button>
+                <button class="toggle-btn" onclick="toggleZones('character')">Characters View</button>
+                <button class="toggle-btn" onclick="toggleZones('all')">All Zones</button>
+            </div>
+
+            <div class="toggle-group">
+                <button class="toggle-btn" onclick="toggleGrid()">Grid Lines</button>
+                <button class="toggle-btn" onclick="toggleMeasurements()">Measurements</button>
+                <button class="toggle-btn" onclick="toggleLabels()">Labels</button>
+            </div>
+
+            <div class="toggle-group">
+                <button class="toggle-btn" onclick="exportLayout()">📤 Export CSS</button>
+                <button class="toggle-btn" onclick="copyCoordinates()">📋 Copy Coords</button>
+            </div>
+        </div>
+
+        <!-- BASIC LAYOUT ZONES -->
+        <div class="zone zone-header basic-zone" data-zone="header">
+            <span>🏠 HEADER ZONE</span>
+            <div class="zone-label" style="top: -25px; left: 10px;">
+                Fixed Header - Navigation & Logo
+            </div>
+        </div>
+
+        <div class="zone zone-sidebar-left basic-zone" data-zone="sidebar-left">
+            <span>📋 LEFT SIDEBAR</span>
+            <div class="zone-label" style="top: 10px; left: -120px;">
+                Menu & Tools
+            </div>
+        </div>
+
+        <div class="zone zone-main basic-zone" data-zone="main">
+            <span>📄 MAIN CONTENT</span>
+            <div class="zone-label" style="top: -25px; left: 50%;">
+                Primary Content Area
+            </div>
+        </div>
+
+        <div class="zone zone-sidebar-right basic-zone" data-zone="sidebar-right">
+            <span>⚙️ RIGHT SIDEBAR</span>
+            <div class="zone-label" style="top: 10px; right: -120px;">
+                Additional Info
+            </div>
+        </div>
+
+        <div class="zone zone-footer basic-zone" data-zone="footer">
+            <span>📍 FOOTER ZONE</span>
+            <div class="zone-label" style="bottom: -25px; left: 10px;">
+                Footer Links & Copyright
+            </div>
+        </div>
+
+        <!-- CHARACTER VIEW SPECIFIC ZONES -->
+        <div class="zone zone-faction character-zone hidden" data-zone="faction">
+            <span>🏛️ FACTION<br>Red Zone</span>
+            <div class="zone-label" style="top: -25px; left: 0;">
+                Faction Display Area
+            </div>
+        </div>
+
+        <div class="zone zone-characters character-zone hidden" data-zone="characters">
+            <span>👥 CHARACTERS<br>Blue Zone</span>
+            <div class="zone-label" style="top: -25px; left: 50%;">
+                Character Navigation (Max 3)
+            </div>
+        </div>
+
+        <div class="zone zone-lore character-zone hidden" data-zone="lore">
+            <span>📖 LORE<br>Yellow Zone</span>
+            <div class="zone-label" style="top: -25px; right: 0;">
+                Character Story & Info
+            </div>
+        </div>
+
+        <div class="zone zone-skills character-zone hidden" data-zone="skills">
+            <span>⚔️ SKILLS<br>Green Zone</span>
+            <div class="zone-label" style="bottom: -25px; left: 50%;">
+                Character Skills Demo
+            </div>
+        </div>
+
+        <!-- COORDINATES DISPLAY -->
+        <div class="coordinates hidden" id="coordinates">
+            X: 0, Y: 0
+        </div>
+
+        <!-- RESPONSIVE GUIDE -->
+        <div class="responsive-guide">
+            <h4>📱 Responsive Breakpoints</h4>
+            <div class="screen-size">📱 Mobile: < 768px</div>
+            <div class="screen-size">📱 Tablet: 768px - 1024px</div>
+            <div class="screen-size">💻 Desktop: > 1024px</div>
+            <div class="screen-size">🖥️ Large: > 1400px</div>
+        </div>
+    </div>
+
+    <script>
+        // Zone management
+        let currentView = 'basic';
+        let showGrid = true;
+        let showMeasurements = false;
+        let showLabels = true;
+
+        function toggleZones(view) {
+            // Update active button
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Hide all zones first
+            document.querySelectorAll('.zone').forEach(zone => {
+                zone.classList.add('hidden');
+            });
+
+            // Show selected zones
+            if (view === 'basic') {
+                document.querySelectorAll('.basic-zone').forEach(zone => {
+                    zone.classList.remove('hidden');
+                });
+            } else if (view === 'character') {
+                document.querySelectorAll('.character-zone').forEach(zone => {
+                    zone.classList.remove('hidden');
+                });
+            } else if (view === 'all') {
+                document.querySelectorAll('.zone').forEach(zone => {
+                    zone.classList.remove('hidden');
+                });
+            }
+
+            currentView = view;
+        }
+
+        function toggleGrid() {
+            const container = document.getElementById('designContainer');
+            showGrid = !showGrid;
+            
+            if (showGrid) {
+                container.style.backgroundImage = `
+                    linear-gradient(rgba(251, 191, 36, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(251, 191, 36, 0.1) 1px, transparent 1px)
+                `;
+                event.target.classList.add('active');
+            } else {
+                container.style.backgroundImage = 'none';
+                event.target.classList.remove('active');
+            }
+        }
+
+        function toggleMeasurements() {
+            showMeasurements = !showMeasurements;
+            // Implementation for measurement lines
+            event.target.classList.toggle('active');
+        }
+
+        function toggleLabels() {
+            showLabels = !showLabels;
+            document.querySelectorAll('.zone-label').forEach(label => {
+                label.style.display = showLabels ? 'block' : 'none';
+            });
+            event.target.classList.toggle('active');
+        }
+
+        function exportLayout() {
+            const css = generateCSS();
+            navigator.clipboard.writeText(css).then(() => {
+                alert('✅ CSS Layout đã được copy vào clipboard!');
+            });
+        }
+
+        function copyCoordinates() {
+            const coords = getZoneCoordinates();
+            navigator.clipboard.writeText(coords).then(() => {
+                alert('✅ Tọa độ zones đã được copy!');
+            });
+        }
+
+        function generateCSS() {
+            return `
+/* ===== LAYOUT ZONES CSS ===== */
+.layout-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Header Zone */
+.header-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 50;
+}
+
+/* Main Content Zone */
+.main-zone {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    padding: 20px;
+    min-height: calc(100vh - 140px);
+}
+
+/* Footer Zone */
+.footer-zone {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    z-index: 40;
+}
+
+/* Character Layout Grid */
+.character-layout {
+    display: grid;
+    grid-template-areas: 
+        "faction characters characters"
+        "lore lore lore"
+        "skills skills skills";
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 250px 200px 150px;
+    gap: 20px;
+    padding: 20px;
+}
+
+.faction-area { grid-area: faction; }
+.characters-area { grid-area: characters; }
+.lore-area { grid-area: lore; }
+.skills-area { grid-area: skills; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .character-layout {
+        grid-template-areas:
+            "faction"
+            "characters" 
+            "lore"
+            "skills";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
+            `;
+        }
+
+        function getZoneCoordinates() {
+            const zones = document.querySelectorAll('.zone:not(.hidden)');
+            let coords = '📍 ZONE COORDINATES:\n\n';
+            
+            zones.forEach(zone => {
+                const rect = zone.getBoundingClientRect();
+                const zoneName = zone.dataset.zone || 'unknown';
+                coords += `${zoneName.toUpperCase()}:\n`;
+                coords += `  Top: ${Math.round(rect.top)}px\n`;
+                coords += `  Left: ${Math.round(rect.left)}px\n`;
+                coords += `  Width: ${Math.round(rect.width)}px\n`;
+                coords += `  Height: ${Math.round(rect.height)}px\n\n`;
+            });
+            
+            return coords;
+        }
+
+        // Mouse tracking for coordinates
+        document.addEventListener('mousemove', (e) => {
+            const coordsDisplay = document.getElementById('coordinates');
+            if (!coordsDisplay.classList.contains('hidden')) {
+                coordsDisplay.textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
+            }
+        });
+
+        // Zone click handlers
+        document.querySelectorAll('.zone').forEach(zone => {
+            zone.addEventListener('click', () => {
+                const zoneName = zone.dataset.zone;
+                const rect = zone.getBoundingClientRect();
+                
+                alert(`
+🎯 ${zoneName.toUpperCase()} ZONE INFO:
+                
+📐 Dimensions:
+• Width: ${Math.round(rect.width)}px
+• Height: ${Math.round(rect.height)}px
+
+📍 Position:
+• Top: ${Math.round(rect.top)}px  
+• Left: ${Math.round(rect.left)}px
+
+💡 Suggested Use:
+${getZoneSuggestion(zoneName)}
+                `);
+            });
+        });
+
+        function getZoneSuggestion(zoneName) {
+            const suggestions = {
+                'header': 'Navigation menu, logo, user controls',
+                'main': 'Primary content, articles, main features',
+                'sidebar-left': 'Navigation menu, filters, categories',
+                'sidebar-right': 'Ads, related content, widgets',
+                'footer': 'Links, copyright, contact info',
+                'faction': 'Display selected faction info & image',
+                'characters': 'Character selection carousel (max 3)',
+                'lore': 'Character story, background, quotes',
+                'skills': 'Character abilities, skill demonstrations'
+            };
+            
+            return suggestions[zoneName] || 'Custom content area';
+        }
+
+        // Initialize
+        console.log('🎯 Layout Design Guide loaded successfully!');
+        console.log('💡 Click on zones to get detailed info');
+        console.log('⚙️ Use control panel to switch views');
+    </script>
+</body>
+</html>
