@@ -1,0 +1,60 @@
+/* ===== GLOBAL CSS VARIABLES ===== */
+:root {
+  --gold: #fbbf24;
+  --parchment: #e2e8f0;
+  --muted: #9ca3af;
+  --border: #374151;
+}
+
+/* ===== IMPORT ALL COMPONENT CSS ===== */
+@import 'components/SocialBar.css';
+@import 'components/Header.css';
+@import 'components/Footer.css';
+
+/* ===== IMPORT ALL VIEW CSS ===== */
+@import 'views/HomeView.css';
+
+/* ===== GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: var(--parchment);
+  min-height: 100vh;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center { text-align: center; }
+.text-gold { color: var(--gold); }
+.text-muted { color: var(--muted); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .site-header .row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .controls-box {
+    margin-right: 0 !important;
+  }
+  
+  .logo-box {
+    margin-left: 0 !important;
+  }
+}

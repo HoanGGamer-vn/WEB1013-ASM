@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Component</title>
+    <link rel="stylesheet" href="../css/components/Header.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container row">
+            <!-- Logo Box -->
+            <div class="logo-box">
+                <a href="/" class="logo">ERROR404</a>
+            </div>
+
+            <!-- Menu Box -->
+            <div class="menu-box">
+                <nav class="nav">
+                    <a href="/" class="active">HOME</a>
+                    <a href="/news">NEWS</a>
+                    <a href="/characters">CHARACTERS</a>
+                    <a href="/world">WORLD</a>
+                    <a href="/story">STORY</a>
+                </nav>
+            </div>
+
+            <!-- Controls Box -->
+            <div class="controls-box">
+                <div class="language-dropdown">
+                    <button class="chip">
+                        English
+                        <span class="arrow">▾</span>
+                    </button>
+                    <div class="dropdown-menu" style="display: none;">
+                        <a href="#">🇺🇸 English</a>
+                        <a href="#">🇻🇳 Tiếng Việt</a>
+                        <a href="#">🇯🇵 日本語</a>
+                        <a href="#">🇰🇷 한국어</a>
+                        <a href="#">🇨🇳 中文</a>
+                    </div>
+                </div>
+                <button class="chip bgm-button" aria-label="BGM" title="Play BGM">
+                    <span class="music-icon">♪</span>
+                </button>
+                <button class="avatar" aria-label="User">
+                    <img src="/images/btn-login.png" alt="User Avatar" />
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Basic JavaScript for dropdown -->
+    <script>
+        const dropdown = document.querySelector('.language-dropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        const chip = dropdown.querySelector('.chip');
+
+        chip.addEventListener('click', () => {
+            dropdown.classList.toggle('open');
+            dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+                dropdownMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

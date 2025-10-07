@@ -1,0 +1,6 @@
+/* Global CSS cho tất cả components */
+@import './components/social-bar.css';
+@import './components/header.css';
+@import './components/footer.css';
+
+/* Có thể add thêm các component CSS khác */

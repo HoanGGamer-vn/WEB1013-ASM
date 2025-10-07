@@ -8,7 +8,18 @@
     <a aria-label="TikTok"   href="https://tiktok.com/" target="_blank" rel="noopener noreferrer"></a>
   </div>
 </template>
+
+<script>
+// Cách 1: Import CSS vào component
+import './SocialBar.css'
+
+export default {
+  name: 'SocialBar'
+}
+</script>
+
 <style scoped>
+/* CSS đã được tách ra file SocialBar.css */
 .social{position:absolute;left:32px;bottom:70px;display:flex;gap:18px;z-index:50}
 .social a{
   width:22px;

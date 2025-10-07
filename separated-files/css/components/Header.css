@@ -1,0 +1,230 @@
+/* Header Component CSS */
+.site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border-bottom: none;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 24px;
+    gap: 20px;
+}
+
+/* Logo Box */
+.logo-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-start;
+    margin-left: -320px;
+    margin-right: 0px;
+}
+
+.logo {
+    font-weight: 800;
+    letter-spacing: 0.20em;
+    color: var(--gold);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* Menu Box */
+.menu-box {
+    display: flex;
+    align-items: center;
+    flex: 2;
+    justify-content: center;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav > a {
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    opacity: 0.92;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--parchment);
+}
+
+.nav a:hover,
+.nav .active {
+    color: var(--gold);
+}
+
+/* Controls Box */
+.controls-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: flex-end;
+    margin-left: 0px;
+    margin-right: -320px;
+}
+
+/* Language Dropdown */
+.language-dropdown {
+    position: relative;
+}
+
+.language-dropdown .chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    width: 100px;
+    text-align: center;
+}
+
+.language-dropdown .arrow {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.language-dropdown.open .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid color-mix(in oklab, var(--gold) 30%, transparent);
+    border-radius: 10px;
+    backdrop-filter: blur(12px);
+    margin-top: 4px;
+    padding: 8px 0;
+    z-index: 100;
+    animation: dropdownFade 0.3s ease;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 12px;
+    color: var(--parchment);
+    font-size: 14px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--gold);
+    transform: translateX(4px);
+}
+
+/* BGM Button */
+.bgm-button {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bgm-button .music-icon {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.bgm-button.playing .music-icon {
+    animation: musicPulse 1.5s ease-in-out infinite;
+    color: var(--gold);
+}
+
+.bgm-button.paused .music-icon {
+    color: var(--parchment);
+    opacity: 1;
+}
+
+.bgm-button:hover {
+    border-color: color-mix(in oklab, var(--gold) 60%, transparent);
+    transform: scale(1.05);
+}
+
+@keyframes musicPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    25% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1.15);
+        opacity: 0.9;
+    }
+}
+
+.chip {
+    border: 1px solid color-mix(in oklab, var(--gold) 30%, transparent);
+    background: transparent;
+    border-radius: 10px;
+    color: var(--parchment);
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid color-mix(in oklab, var(--gold) 30%, transparent);
+    background: transparent;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+    border-color: color-mix(in oklab, var(--gold) 60%, transparent);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
