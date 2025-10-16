@@ -32,19 +32,30 @@ jobs:
       env:
         NODE_ENV: production
         
+    - name: Force copy public assets (backup)
+      run: |
+        echo "=== Force copying public assets ==="
+        cp -r public/* dist/ || echo "Public copy failed"
+        echo "=== Verify images after force copy ==="
+        test -f dist/images/btn-login.png && echo "✅ Force copy successful" || echo "❌ Force copy failed"
+        
     - name: Debug - List dist contents
       run: |
+        echo "=== BUILD VERIFICATION ==="
+        echo "Current directory: $(pwd)"
+        echo "=== Dist folder exists? ==="
+        test -d dist && echo "✅ dist exists" || echo "❌ dist missing"
         echo "=== Dist folder contents ==="
-        ls -la dist/
-        echo "=== Images folder ==="
-        ls -la dist/images/ || echo "Images folder missing!"
-        echo "=== Sample image files ==="
-        ls -la dist/images/btn-* || echo "Button images missing!"
-        echo "=== Assets folder ==="
-        ls -la dist/assets/ || echo "Assets folder missing!"
-        echo "=== Verify critical files exist ==="
+        find dist -type f | head -20
+        echo "=== Images folder verification ==="
+        test -d dist/images && echo "✅ images folder exists" || echo "❌ images folder missing"
+        echo "=== Images count ==="
+        find dist/images -name "*.png" -o -name "*.jpg" | wc -l || echo "0 images found"
+        echo "=== Sample files check ==="
         test -f dist/images/btn-login.png && echo "✅ btn-login.png exists" || echo "❌ btn-login.png missing"
-        test -f dist/images/bg-home.png && echo "✅ bg-home.png exists" || echo "❌ bg-home.png missing"
+        test -f dist/images/qr.png && echo "✅ qr.png exists" || echo "❌ qr.png missing"
+        echo "=== File sizes ==="
+        du -h dist/images/*.png | head -5 || echo "No PNG files found"
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
