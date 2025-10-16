@@ -38,8 +38,13 @@ jobs:
         ls -la dist/
         echo "=== Images folder ==="
         ls -la dist/images/ || echo "Images folder missing!"
+        echo "=== Sample image files ==="
+        ls -la dist/images/btn-* || echo "Button images missing!"
         echo "=== Assets folder ==="
         ls -la dist/assets/ || echo "Assets folder missing!"
+        echo "=== Verify critical files exist ==="
+        test -f dist/images/btn-login.png && echo "✅ btn-login.png exists" || echo "❌ btn-login.png missing"
+        test -f dist/images/bg-home.png && echo "✅ bg-home.png exists" || echo "❌ bg-home.png missing"
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -48,6 +53,7 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       with:
         path: ./dist
+        retention-days: 1
         
     - name: Deploy to GitHub Pages
       id: deployment
