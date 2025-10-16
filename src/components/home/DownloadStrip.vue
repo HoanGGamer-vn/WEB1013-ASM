@@ -2,33 +2,38 @@
   <div class="download-box">
     <!-- QR box -->
     <div class="qrcode">
-      <img src="/images/qr.png" alt="Scan to download" />
+      <img :src="baseUrl + 'images/qr.png'" alt="Scan to download" />
     </div>
 
     <!-- Grid 2 hàng × 3 cột -->
     <div class="btn-grid">
       <a class="dl" href="https://store.steampowered.com/" target="_blank" rel="noopener noreferrer" aria-label="Windows">
-        <img src="/images/btn-windows.png" alt="Windows" />
+        <img :src="baseUrl + 'images/btn-windows.png'" alt="Windows" />
       </a>
       <a class="dl" href="https://play.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
-        <img src="/images/btn-googleplay.png" alt="Google Play" />
+        <img :src="baseUrl + 'images/btn-googleplay.png'" alt="Google Play" />
       </a>
       <a class="dl" href="https://play.google.com/games/" target="_blank" rel="noopener noreferrer" aria-label="Google Play Games">
-        <img src="/images/btn-googleplaygames.png" alt="Google Play Games" />
+        <img :src="baseUrl + 'images/btn-googleplaygames.png'" alt="Google Play Games" />
       </a>
 
       <a class="dl" href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer" aria-label="App Store">
-        <img src="/images/btn-appstore.png" alt="App Store" />
+        <img :src="baseUrl + 'images/btn-appstore.png'" alt="App Store" />
       </a>
       <a class="dl" href="https://store.epicgames.com/" target="_blank" rel="noopener noreferrer" aria-label="Epic Games">
-        <img src="/images/btn-epic.png" alt="Epic Games" />
+        <img :src="baseUrl + 'images/btn-epic.png'" alt="Epic Games" />
       </a>
       <a class="dl" href="https://store.playstation.com/" target="_blank" rel="noopener noreferrer" aria-label="PS5">
-        <img src="/images/btn-ps5.png" alt="PlayStation 5" />
+        <img :src="baseUrl + 'images/btn-ps5.png'" alt="PlayStation 5" />
       </a>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+// Base URL for assets
+const baseUrl = import.meta.env.BASE_URL
+</script>
 
 <style scoped>
 .download-box{

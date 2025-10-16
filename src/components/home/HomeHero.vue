@@ -145,7 +145,7 @@ const onVideoError = (event: Event) => {
 .bg-fallback{
   position:absolute;
   inset:0;
-  background:url('/images/bg-home.png') center/cover no-repeat;
+  background:url('./images/bg-home.png') center/cover no-repeat;
   z-index:1;
   opacity:0;
   transition:opacity 0.5s ease;
@@ -155,7 +155,7 @@ const onVideoError = (event: Event) => {
   opacity:1;
 }
 .overlay{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 45%,rgba(196,172,125,.22) 0%,transparent 70%);mix-blend-mode:soft-light;z-index:2}
-.noise{position:absolute;inset:0;background:url('/images/noise.png') repeat;opacity:.12;pointer-events:none;z-index:3}
+.noise{position:absolute;inset:0;background:url('./images/noise.png') repeat;opacity:.12;pointer-events:none;z-index:3}
 
 .play{
   position:absolute;

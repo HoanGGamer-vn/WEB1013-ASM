@@ -53,7 +53,7 @@
                 :aria-label="$t('accessibility.openUserMenu')" 
                 @click="showLogin = true"
                 :title="$t('header.login')">
-          <img src="/images/btn-login.png" alt="" role="presentation" />
+          <img :src="baseUrl + 'images/btn-login.png'" alt="" role="presentation" />
         </button>
       </div>
     </div>
@@ -73,6 +73,9 @@ import SearchBox from './SearchBox.vue'
 
 const route = useRoute()
 const { t } = useI18n()
+
+// Base URL for assets
+const baseUrl = import.meta.env.BASE_URL
 
 // BGM functionality
 const isPlaying = ref(false)
