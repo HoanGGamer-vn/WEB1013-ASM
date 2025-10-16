@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regions Section Component</title>
+    <link rel="stylesheet" href="../css/components/RegionsSection.css">
+</head>
+<body>
+    <section class="regions-section">
+        <div class="container">
+            <!-- Header với tiêu đề và họa tiết -->
+            <div class="section-header">
+                <div class="ornament left-ornament"></div>
+                <h2 class="section-title">New Regions</h2>
+                <div class="ornament right-ornament"></div>
+            </div>
+
+            <!-- Carousel container -->
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide active" data-index="0">
+                        <div class="image-container">
+                            <!-- Ảnh phụ trái -->
+                            <div class="side-image left-image active">
+                                <img src="/images/regions/frozen-tundra.jpg" alt="Frozen Tundra" class="region-image">
+                            </div>
+
+                            <!-- Ảnh chính -->
+                            <div class="main-image active">
+                                <img src="/images/regions/mystic-forest.jpg" alt="Mystic Forest" class="region-image">
+                            </div>
+
+                            <!-- Ảnh phụ phải -->
+                            <div class="side-image right-image active">
+                                <img src="/images/regions/crystal-caverns.jpg" alt="Crystal Caverns" class="region-image">
+                            </div>
+                        </div>
+
+                        <!-- Thông tin region -->
+                        <div class="region-info">
+                            <h3 class="region-name">Mystic Forest</h3>
+                            <p class="region-description">A magical forest filled with ancient trees and mysterious creatures. Explore the hidden secrets within the enchanted woods.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide" data-index="1">
+                        <div class="image-container">
+                            <div class="side-image left-image">
+                                <img src="/images/regions/mystic-forest.jpg" alt="Mystic Forest" class="region-image">
+                            </div>
+                            <div class="main-image">
+                                <img src="/images/regions/crystal-caverns.jpg" alt="Crystal Caverns" class="region-image">
+                            </div>
+                            <div class="side-image right-image">
+                                <img src="/images/regions/floating-islands.jpg" alt="Floating Islands" class="region-image">
+                            </div>
+                        </div>
+                        <div class="region-info">
+                            <h3 class="region-name">Crystal Caverns</h3>
+                            <p class="region-description">Underground caves sparkling with precious crystals and dangerous monsters lurking in the shadows of the deep.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide" data-index="2">
+                        <div class="image-container">
+                            <div class="side-image left-image">
+                                <img src="/images/regions/crystal-caverns.jpg" alt="Crystal Caverns" class="region-image">
+                            </div>
+                            <div class="main-image">
+                                <img src="/images/regions/floating-islands.jpg" alt="Floating Islands" class="region-image">
+                            </div>
+                            <div class="side-image right-image">
+                                <img src="/images/regions/volcanic-peaks.jpg" alt="Volcanic Peaks" class="region-image">
+                            </div>
+                        </div>
+                        <div class="region-info">
+                            <h3 class="region-name">Floating Islands</h3>
+                            <p class="region-description">Sky-high islands connected by mystical bridges, home to aerial creatures and wind magic that defies gravity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="navigation">
+                <button onclick="previousSlide()" class="nav-button prev-button" id="prevBtn">
+                    <span class="nav-arrow">‹</span>
+                </button>
+                <button onclick="nextSlide()" class="nav-button next-button" id="nextBtn">
+                    <span class="nav-arrow">›</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentIndex = 0;
+        const totalSlides = 3;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            // Update transform
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update active classes
+            slides.forEach((slide, index) => {
+                const isActive = index === currentIndex;
+                slide.classList.toggle('active', isActive);
+                
+                const mainImage = slide.querySelector('.main-image');
+                const sideImages = slide.querySelectorAll('.side-image');
+                
+                mainImage.classList.toggle('active', isActive);
+                sideImages.forEach(img => img.classList.toggle('active', isActive));
+            });
+            
+            // Update button states
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        }
+
+        function previousSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        }
+
+        // Initialize
+        updateCarousel();
+    </script>
+</body>
+</html>

@@ -24,6 +24,16 @@
             />
             <span class="search-icon">🔍</span>
           </div>
+          
+          <!-- Feedback & External Tools -->
+          <div class="external-tools">
+            <!-- Feedback Button -->
+            <button class="feedback-btn" @click="showFeedbackModal = true" title="Feedback & Suggestions">
+              <span class="feedback-icon">💬</span>
+              <span class="feedback-text">Feedback</span>
+            </button>
+
+          </div>
         </div>
       </div>
     </section>
@@ -126,6 +136,63 @@
 
       </div>
     </section>
+    
+    <!-- Feedback Modal -->
+    <Transition name="modal">
+      <div v-if="showFeedbackModal" class="feedback-modal-overlay" @click="closeFeedbackModal">
+        <div class="feedback-modal" @click.stop>
+          <div class="modal-header">
+            <h3>Feedback & Suggestions</h3>
+            <button class="close-btn" @click="closeFeedbackModal">
+              <span>✕</span>
+            </button>
+          </div>
+          
+          <div class="modal-body">
+            <div class="feedback-types">
+              <label class="feedback-type-item">
+                <input type="radio" v-model="feedbackType" value="suggestion" />
+                <span class="radio-custom"></span>
+                <span class="type-text">💡 Suggestion</span>
+              </label>
+              <label class="feedback-type-item">
+                <input type="radio" v-model="feedbackType" value="bug" />
+                <span class="radio-custom"></span>
+                <span class="type-text">🐛 Bug Report</span>
+              </label>
+              <label class="feedback-type-item">
+                <input type="radio" v-model="feedbackType" value="compliment" />
+                <span class="radio-custom"></span>
+                <span class="type-text">👍 Compliment</span>
+              </label>
+              <label class="feedback-type-item">
+                <input type="radio" v-model="feedbackType" value="other" />
+                <span class="radio-custom"></span>
+                <span class="type-text">💭 Other</span>
+              </label>
+            </div>
+            
+            <div class="feedback-input">
+              <label>Your Message</label>
+              <textarea 
+                v-model="feedbackText" 
+                placeholder="Tell us what you think..."
+                rows="4"
+              ></textarea>
+            </div>
+          </div>
+          
+          <div class="modal-footer">
+            <button class="cancel-btn" @click="closeFeedbackModal">
+              Cancel
+            </button>
+            <button class="submit-btn" @click="submitFeedback" :disabled="!feedbackText.trim()">
+              Send Feedback
+            </button>
+          </div>
+        </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -152,6 +219,9 @@ type NewsArticle = {
 
 const hoveredArticle = ref<NewsArticle | null>(null)
 const activeArticle = ref<NewsArticle | null>(null)
+const showFeedbackModal = ref(false)
+const feedbackType = ref('suggestion')
+const feedbackText = ref('')
 
 // Categories
 const categories = ref([
@@ -329,6 +399,30 @@ const readMore = (article: any) => {
 const getCategoryName = (categoryId: string) => {
   const category = categories.value.find(cat => cat.id === categoryId)
   return category ? category.name : categoryId
+}
+
+// Feedback methods
+const closeFeedbackModal = () => {
+  showFeedbackModal.value = false
+  feedbackText.value = ''
+  feedbackType.value = 'suggestion'
+}
+
+const submitFeedback = () => {
+  if (!feedbackText.value.trim()) return
+  
+  // Simulate feedback submission
+  console.log('Feedback submitted:', {
+    type: feedbackType.value,
+    message: feedbackText.value,
+    page: 'news',
+    timestamp: new Date().toISOString()
+  })
+  
+  // Show success message (you can implement a toast notification here)
+  alert('Thank you for your feedback! We will review and improve.')
+  
+  closeFeedbackModal()
 }
 
 onMounted(() => {
@@ -541,6 +635,68 @@ onMounted(() => {
   font-size: 1.1rem;
   color: var(--gold);
 }
+
+/* External Tools */
+.external-tools {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feedback-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(196, 172, 125, 0.1), rgba(196, 172, 125, 0.05));
+  border: 1px solid rgba(196, 172, 125, 0.3);
+  border-radius: 12px;
+  color: var(--gold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(196, 172, 125, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.feedback-btn:hover::before {
+  left: 100%;
+}
+
+.feedback-btn:hover {
+  background: linear-gradient(135deg, rgba(196, 172, 125, 0.2), rgba(196, 172, 125, 0.1));
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(196, 172, 125, 0.2);
+}
+
+.feedback-icon {
+  font-size: 1.1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.feedback-text {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+
 
 /* News Grid */
 .news-grid {
@@ -1139,6 +1295,37 @@ onMounted(() => {
     min-width: auto;
   }
   
+  .external-tools {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  
+  .feedback-btn {
+    justify-content: center;
+    padding: 0.6rem 1rem;
+  }
+  
+  .feedback-modal {
+    margin: 1rem;
+    max-width: calc(100vw - 2rem);
+  }
+  
+  .feedback-types {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .modal-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .cancel-btn, .submit-btn {
+    width: 100%;
+    padding: 1rem;
+  }
+  
   .news-item {
     padding: 0.7rem;
   }
@@ -1155,6 +1342,248 @@ onMounted(() => {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
+}
+
+/* Feedback Modal */
+.feedback-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+}
+
+.feedback-modal {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+  border: 1px solid rgba(196, 172, 125, 0.3);
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(196, 172, 125, 0.2);
+  background: rgba(196, 172, 125, 0.05);
+}
+
+.modal-header h3 {
+  color: var(--gold);
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: rgba(156, 163, 175, 0.1);
+  color: var(--gold);
+}
+
+.modal-body {
+  padding: 1.5rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.feedback-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.feedback-type-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(196, 172, 125, 0.05);
+  border: 1px solid rgba(196, 172, 125, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.feedback-type-item:hover {
+  background: rgba(196, 172, 125, 0.1);
+  border-color: rgba(196, 172, 125, 0.3);
+}
+
+.feedback-type-item input[type="radio"] {
+  display: none;
+}
+
+.radio-custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(196, 172, 125, 0.4);
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.feedback-type-item input[type="radio"]:checked + .radio-custom {
+  border-color: var(--gold);
+  background: rgba(196, 172, 125, 0.1);
+}
+
+.feedback-type-item input[type="radio"]:checked + .radio-custom::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.feedback-type-item input[type="radio"]:checked ~ .type-text {
+  color: var(--gold);
+}
+
+.type-text {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feedback-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feedback-input label {
+  color: var(--gold);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.feedback-input textarea {
+  padding: 1rem;
+  background: rgba(11, 11, 11, 0.8);
+  border: 1px solid rgba(196, 172, 125, 0.2);
+  border-radius: 12px;
+  color: var(--parchment);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 100px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.feedback-input textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(11, 11, 11, 1);
+  box-shadow: 0 0 0 2px rgba(196, 172, 125, 0.2);
+}
+
+.feedback-input textarea::placeholder {
+  color: rgba(229, 231, 235, 0.5);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(196, 172, 125, 0.2);
+  background: rgba(196, 172, 125, 0.02);
+}
+
+.cancel-btn, .submit-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.cancel-btn {
+  background: transparent;
+  color: #9ca3af;
+  border: 1px solid rgba(156, 163, 175, 0.3);
+}
+
+.cancel-btn:hover {
+  border-color: #9ca3af;
+  color: #d1d5db;
+}
+
+.submit-btn {
+  background: linear-gradient(45deg, var(--gold), #d4c190);
+  color: #1a1a1a;
+  border: none;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(196, 172, 125, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Modal Animations */
+.modal-enter-active, .modal-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-enter-from, .modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-from .feedback-modal,
+.modal-leave-to .feedback-modal {
+  transform: scale(0.95) translateY(20px);
 }
 
 /* Container */

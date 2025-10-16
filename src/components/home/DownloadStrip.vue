@@ -59,6 +59,7 @@
   gap: 5px;
   align-items:center;
   justify-items:center;
+  
 }
 
 /* Ô nút + ảnh tự fit */

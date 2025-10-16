@@ -28,3 +28,21 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Environment files (security sensitive)
+.env
+.env.*
+!.env.example
+
+# Vue compiled files (auto-generated)
+*.vue.js
+
+# Build artifacts
+dist-ssr
+*.local
+
+# IDE files
+.vscode/settings.json
+
+# OS files
+Thumbs.db

@@ -1,0 +1,36 @@
+User-agent: *
+Allow: /
+
+# Disallow sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_vite/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.log$
+
+# Allow important assets
+Allow: /icons/
+Allow: /images/
+Allow: /audio/
+Allow: /video/
+Allow: /assets/
+
+# Sitemap
+Sitemap: https://error404.com/sitemap.xml
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2

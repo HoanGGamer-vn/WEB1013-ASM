@@ -1,0 +1,86 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title": "Wuthering Waves Ver 2.0 - Echoes of the Past",
+      "slug": "wuthering-waves-ver-2-0-echoes-past",
+      "excerpt": "Khám phá những vùng đất mới với cập nhật lớn nhất từ trước đến nay. Những bí ẩn từ quá khứ được hé lộ trong phiên bản 2.0.",
+      "content": "Phiên bản 2.0 mang đến nhiều tính năng mới hấp dẫn...",
+      "category": "updates",
+      "tags": ["update", "new-content", "story"],
+      "author": {
+        "name": "Error404 Team",
+        "avatar": "/images/author-avatar.png"
+      },
+      "publishedAt": "2024-01-15T09:00:00Z",
+      "updatedAt": "2024-01-15T09:00:00Z",
+      "featured": true,
+      "readTime": 5,
+      "image": {
+        "url": "/images/news/news-1.jpg",
+        "alt": "Wuthering Waves Ver 2.0 banner"
+      },
+      "seo": {
+        "metaTitle": "Wuthering Waves Ver 2.0 - Echoes of the Past | Error404",
+        "metaDescription": "Khám phá những tính năng mới trong phiên bản 2.0 của Wuthering Waves",
+        "keywords": ["wuthering waves", "update 2.0", "game news"]
+      }
+    },
+    {
+      "id": 2,
+      "title": "Lunar New Year Event 2024",
+      "slug": "lunar-new-year-event-2024",
+      "excerpt": "Tham gia sự kiện Tết Nguyên Đán với những phần thưởng độc quyền và skin giới hạn.",
+      "content": "Sự kiện đặc biệt mừng Tết Nguyên Đán...",
+      "category": "events",
+      "tags": ["event", "limited-time", "rewards"],
+      "author": {
+        "name": "Event Team",
+        "avatar": "/images/author-avatar.png"
+      },
+      "publishedAt": "2024-01-10T14:30:00Z",
+      "updatedAt": "2024-01-10T14:30:00Z",
+      "featured": false,
+      "readTime": 3,
+      "image": {
+        "url": "/images/news/news-2.jpg",
+        "alt": "Lunar New Year Event banner"
+      },
+      "seo": {
+        "metaTitle": "Sự kiện Tết Nguyên Đán 2024 | Error404",
+        "metaDescription": "Tham gia sự kiện Tết với phần thưởng hấp dẫn",
+        "keywords": ["lunar new year", "event", "wuthering waves"]
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "updates",
+      "name": "Cập Nhật",
+      "slug": "cap-nhat",
+      "description": "Các bản cập nhật và tin tức về game",
+      "color": "#10b981"
+    },
+    {
+      "id": "events", 
+      "name": "Sự Kiện",
+      "slug": "su-kien",
+      "description": "Các sự kiện đặc biệt trong game",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "patches",
+      "name": "Bản Vá",
+      "slug": "ban-va", 
+      "description": "Các bản vá lỗi và cải tiến",
+      "color": "#ef4444"
+    },
+    {
+      "id": "community",
+      "name": "Cộng Đồng",
+      "slug": "cong-dong",
+      "description": "Tin tức từ cộng đồng người chơi",
+      "color": "#8b5cf6"
+    }
+  ]
+}

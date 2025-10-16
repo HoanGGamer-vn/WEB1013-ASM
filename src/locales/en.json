@@ -1,0 +1,239 @@
+{
+  "nav": {
+    "home": "HOME",
+    "news": "NEWS",
+    "characters": "CHARACTERS", 
+    "story": "STORY",
+    "world": "WORLD",
+    "mainNavigation": "Main navigation"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "goHome": "Go home",
+    "goBack": "Go back",
+    "readMore": "Read more",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "category": "Category",
+    "all": "All",
+    "close": "Close",
+    "open": "Open",
+    "save": "Save",
+    "cancel": "Cancel", 
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "share": "Share",
+    "copy": "Copy",
+    "download": "Download",
+    "clear": "Clear"
+  },
+  "header": {
+    "login": "Login",
+    "register": "Register",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "language": "Language",
+    "bgm": "BGM",
+    "playBgm": "Play background music",
+    "pauseBgm": "Pause background music",
+    "musicPlaying": "Music is playing",
+    "musicPaused": "Music is paused"
+  },
+  "footer": {
+    "copyright": "© {year} Error404. All rights reserved.",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "about": "About Us"
+  },
+  "home": {
+    "title": "Welcome to Error404",
+    "subtitle": "Explore the World of Wuthering Waves",
+    "description": "Experience thrilling adventures in a post-apocalyptic world with stunning graphics and deep action RPG gameplay.",
+    "playVideo": "Watch trailer",
+    "downloadGame": "Download game",
+    "exploreWorld": "Explore world",
+    "latestNews": "Latest News",
+    "featuredCharacters": "Featured Characters"
+  },
+  "news": {
+    "title": "Game News",
+    "subtitle": "Latest updates from the world of Wuthering Waves",
+    "featured": "Featured",
+    "latest": "Latest",
+    "categories": {
+      "all": "All",
+      "updates": "Updates",
+      "events": "Events",
+      "patches": "Patches",
+      "community": "Community"
+    },
+    "readTime": "{minutes} min read",
+    "publishedOn": "Published on",
+    "updatedOn": "Updated on",
+    "author": "Author",
+    "tags": "Tags",
+    "relatedNews": "Related News",
+    "noNews": "No news available",
+    "loadMore": "Load more"
+  },
+  "characters": {
+    "title": "Characters",
+    "subtitle": "Discover powerful Resonators",
+    "faction": "Faction",
+    "element": "Element",
+    "weapon": "Weapon",
+    "rarity": "Rarity",
+    "stats": {
+      "hp": "HP",
+      "atk": "ATK",
+      "def": "DEF",
+      "critRate": "Crit Rate",
+      "critDmg": "Crit DMG"
+    },
+    "skills": {
+      "basic": "Basic Attack",
+      "skill": "Resonance Skill",
+      "burst": "Resonance Liberation",
+      "passive": "Passive Skill"
+    },
+    "biography": "Biography",
+    "voiceActors": "Voice Actors",
+    "releaseDate": "Release Date",
+    "obtainMethod": "How to Obtain",
+    "materials": "Materials",
+    "gallery": "Gallery"
+  },
+  "story": {
+    "title": "Story",
+    "subtitle": "Discover the deep narrative of Solaris-3",
+    "mainStory": "Main Story",
+    "sideStories": "Side Stories", 
+    "characterStories": "Character Stories",
+    "worldLore": "World Lore",
+    "chapters": "Chapters",
+    "acts": "Acts",
+    "progress": "Progress",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "locked": "Locked",
+    "rewards": "Rewards"
+  },
+  "world": {
+    "title": "World",
+    "subtitle": "Explore the mysterious lands of Solaris-3",
+    "regions": "Regions",
+    "locations": "Locations",
+    "dungeons": "Dungeons",
+    "bosses": "Bosses",
+    "exploration": "Exploration",
+    "collectibles": "Collectibles",
+    "teleports": "Teleports",
+    "treasures": "Treasures",
+    "secrets": "Secrets",
+    "lore": "Lore",
+    "climate": "Climate",
+    "inhabitants": "Inhabitants",
+    "threats": "Threats"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "description": "It seems like you've wandered into uncharted territory. The page you're looking for doesn't exist or has been moved.",
+      "suggestions": "You might be looking for:"
+    },
+    "500": {
+      "title": "Server Error",
+      "description": "We're experiencing some technical difficulties. Please try again later."
+    },
+    "network": {
+      "title": "Network Error",
+      "description": "Unable to connect to server. Please check your internet connection."
+    },
+    "imageLoad": {
+      "title": "Unable to load image",
+      "retry": "Retry"
+    },
+    "videoLoad": {
+      "title": "Unable to load video",
+      "description": "Video cannot be played. Please try again or check your network connection.",
+      "openNewTab": "Open in new tab"
+    }
+  },
+  "accessibility": {
+    "skipToContent": "Skip navigation, go to main content",
+    "skipToNav": "Go to navigation menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "openUserMenu": "Open user menu", 
+    "selectLanguage": "Select language",
+    "languageOptions": "Language options",
+    "currentPage": "Current page",
+    "loading": "Loading",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information"
+  },
+  "languages": {
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "ja": "日本語", 
+    "ko": "한국어",
+    "zh": "中文"
+  },
+  "search": {
+    "noResults": "No results found for \"{query}\"",
+    "suggestion": "Try different keywords or check spelling",
+    "navigate": "Navigate",
+    "select": "Select",
+    "close": "Close"
+  },
+  "error": {
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDescription": "The page you're looking for doesn't exist or has been moved.",
+    "searchSuggestion": "Try searching for what you need:",
+    "quickLinks": "Quick Links",
+    "reportIssue": "Having trouble? Let us know.",
+    "reportButton": "Report Issue"
+  },
+  "meta": {
+    "title": "Error404 - Wuthering Waves Game Portal",
+    "description": "Discover the world of Wuthering Waves with Error404 - Official game portal featuring latest news, character information, game world and more.",
+    "keywords": "Wuthering Waves, Error404, game portal, RPG, action game, game characters, gaming news"
+  },
+  "pwa": {
+    "installTitle": "Install Error404 App",
+    "installDescription": "Get the best experience with native app on your device.",
+    "install": "Install Now",
+    "later": "Maybe Later",
+    "updateAvailable": "Update Available!",
+    "updateDescription": "New version with exciting features.",
+    "update": "Update",
+    "feature": {
+      "fast": "Lightning Fast",
+      "mobile": "Mobile Friendly",
+      "notifications": "Instant Notifications"
+    }
+  },
+  "feedback": {
+    "title": "Feedback & Suggestions",
+    "button": "Feedback",
+    "message": "Your message",
+    "placeholder": "Share your thoughts, suggestions, or report issues to help us improve...",
+    "submit": "Send Feedback",
+    "success": "Thank you for your feedback! We will review and improve.",
+    "types": {
+      "suggestion": "Suggestion",
+      "bug": "Bug Report",
+      "compliment": "Compliment",
+      "other": "Other"
+    }
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "nav": {
+    "home": "TRANG CHỦ",
+    "news": "TIN TỨC", 
+    "characters": "NHÂN VẬT",
+    "story": "CÂU CHUYỆN",
+    "world": "THẾ GIỚI",
+    "mainNavigation": "Điều hướng chính"
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Đã có lỗi xảy ra",
+    "retry": "Thử lại",
+    "goHome": "Về trang chủ",
+    "goBack": "Quay lại",
+    "readMore": "Đọc thêm",
+    "search": "Tìm kiếm",
+    "filter": "Bộ lọc",
+    "sort": "Sắp xếp",
+    "category": "Danh mục",
+    "all": "Tất cả",
+    "close": "Đóng",
+    "open": "Mở",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "view": "Xem",
+    "share": "Chia sẻ",
+    "copy": "Sao chép",
+    "download": "Tải xuống",
+    "clear": "Xóa"
+  },
+  "header": {
+    "login": "Đăng nhập",
+    "register": "Đăng ký", 
+    "profile": "Hồ sơ",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất",
+    "language": "Ngôn ngữ",
+    "bgm": "Nhạc nền",
+    "playBgm": "Phát nhạc nền",
+    "pauseBgm": "Tạm dừng nhạc nền",
+    "musicPlaying": "Nhạc đang phát",
+    "musicPaused": "Nhạc đã tạm dừng"
+  },
+  "footer": {
+    "copyright": "© {year} Error404. Tất cả quyền được bảo lưu.",
+    "contact": "Liên hệ",
+    "privacy": "Chính sách bảo mật", 
+    "terms": "Điều khoản sử dụng",
+    "about": "Về chúng tôi"
+  },
+  "home": {
+    "title": "Chào mừng đến với Error404",
+    "subtitle": "Khám phá thế giới Wuthering Waves",
+    "description": "Trải nghiệm cuộc phiêu lưu đầy kịch tính trong thế giới post-apocalyptic với đồ họa tuyệt đẹp và lối chơi action RPG sâu sắc.",
+    "playVideo": "Xem trailer",
+    "downloadGame": "Tải game",
+    "exploreWorld": "Khám phá thế giới",
+    "latestNews": "Tin tức mới nhất",
+    "featuredCharacters": "Nhân vật nổi bật"
+  },
+  "news": {
+    "title": "Tin Tức Game",
+    "subtitle": "Cập nhật mới nhất từ thế giới Wuthering Waves",
+    "featured": "Tin nổi bật",
+    "latest": "Mới nhất", 
+    "categories": {
+      "all": "Tất cả",
+      "updates": "Cập nhật",
+      "events": "Sự kiện", 
+      "patches": "Bản vá",
+      "community": "Cộng đồng"
+    },
+    "readTime": "{minutes} phút đọc",
+    "publishedOn": "Đăng ngày",
+    "updatedOn": "Cập nhật ngày",
+    "author": "Tác giả",
+    "tags": "Thẻ",
+    "relatedNews": "Tin liên quan",
+    "noNews": "Không có tin tức nào",
+    "loadMore": "Tải thêm"
+  },
+  "characters": {
+    "title": "Nhân Vật",
+    "subtitle": "Khám phá các Resonator mạnh mẽ",
+    "faction": "Phe phái",
+    "element": "Nguyên tố",
+    "weapon": "Vũ khí",
+    "rarity": "Độ hiếm",
+    "stats": {
+      "hp": "Máu",
+      "atk": "Tấn công",
+      "def": "Phòng thủ", 
+      "critRate": "Tỷ lệ chí mạng",
+      "critDmg": "Sát thương chí mạng"
+    },
+    "skills": {
+      "basic": "Tấn công cơ bản",
+      "skill": "Kỹ năng", 
+      "burst": "Kỹ năng tối thượng",
+      "passive": "Kỹ năng bị động"
+    },
+    "biography": "Tiểu sử",
+    "voiceActors": "Diễn viên lồng tiếng",
+    "releaseDate": "Ngày ra mắt",
+    "obtainMethod": "Cách nhận",
+    "materials": "Nguyên liệu",
+    "gallery": "Thư viện ảnh"
+  },
+  "story": {
+    "title": "Câu Chuyện",
+    "subtitle": "Khám phá câu chuyện sâu sắc của thế giới Solaris-3",
+    "mainStory": "Cốt truyện chính",
+    "sideStories": "Câu chuyện phụ",
+    "characterStories": "Câu chuyện nhân vật",
+    "worldLore": "Lịch sử thế giới",
+    "chapters": "Chương",
+    "acts": "Hồi",
+    "progress": "Tiến độ",
+    "completed": "Đã hoàn thành",
+    "inProgress": "Đang tiến hành",
+    "locked": "Chưa mở khóa",
+    "rewards": "Phần thưởng"
+  },
+  "world": {
+    "title": "Thế Giới", 
+    "subtitle": "Khám phá các vùng đất bí ẩn của Solaris-3",
+    "regions": "Vùng miền",
+    "locations": "Địa điểm",
+    "dungeons": "Hầm ngục",
+    "bosses": "Boss",
+    "exploration": "Khám phá",
+    "collectibles": "Vật phẩm sưu tập",
+    "teleports": "Điểm dịch chuyển",
+    "treasures": "Kho báu",
+    "secrets": "Bí mật",
+    "lore": "Truyền thuyết",
+    "climate": "Khí hậu",
+    "inhabitants": "Cư dân",
+    "threats": "Mối đe dọa"
+  },
+  "errors": {
+    "404": {
+      "title": "Trang Không Tồn Tại",
+      "description": "Có vẻ như bạn đã lạc vào vùng đất chưa được khám phá. Trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.",
+      "suggestions": "Có thể bạn đang tìm:"
+    },
+    "500": {
+      "title": "Lỗi Server", 
+      "description": "Chúng tôi đang gặp một số vấn đề kỹ thuật. Vui lòng thử lại sau."
+    },
+    "network": {
+      "title": "Lỗi Kết Nối",
+      "description": "Không thể kết nối đến server. Vui lòng kiểm tra kết nối mạng."
+    },
+    "imageLoad": {
+      "title": "Không thể tải ảnh",
+      "retry": "Thử lại"
+    },
+    "videoLoad": {
+      "title": "Không thể tải video",
+      "description": "Video không thể phát. Vui lòng thử lại hoặc kiểm tra kết nối mạng.",
+      "openNewTab": "Mở trong tab mới"
+    }
+  },
+  "accessibility": {
+    "skipToContent": "Bỏ qua điều hướng, đến nội dung chính",
+    "skipToNav": "Đến menu điều hướng",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "openUserMenu": "Mở menu người dùng",
+    "selectLanguage": "Chọn ngôn ngữ",
+    "languageOptions": "Tùy chọn ngôn ngữ",
+    "currentPage": "Trang hiện tại",
+    "loading": "Đang tải",
+    "error": "Lỗi",
+    "success": "Thành công",
+    "warning": "Cảnh báo",
+    "info": "Thông tin"
+  },
+  "languages": {
+    "vi": "Tiếng Việt",
+    "en": "English", 
+    "ja": "日本語",
+    "ko": "한국어",
+    "zh": "中文"
+  },
+  "search": {
+    "noResults": "Không tìm thấy kết quả cho \"{query}\"",
+    "suggestion": "Thử từ khóa khác hoặc kiểm tra chính tả",
+    "navigate": "Di chuyển",
+    "select": "Chọn",
+    "close": "Đóng"
+  },
+  "error": {
+    "pageNotFound": "Trang Không Tồn Tại",
+    "pageNotFoundDescription": "Trang bạn đang tìm kiếm không tồn tại hoặc đã được di chuyển.",
+    "searchSuggestion": "Thử tìm kiếm nội dung bạn cần:",
+    "quickLinks": "Liên kết nhanh",
+    "reportIssue": "Gặp sự cố? Hãy báo cáo cho chúng tôi.",
+    "reportButton": "Báo cáo sự cố"
+  },
+  "meta": {
+    "title": "Error404 - Wuthering Waves Game Portal",
+    "description": "Khám phá thế giới Wuthering Waves với Error404 - Cổng thông tin game chính thức với tin tức mới nhất, thông tin nhân vật, thế giới game và nhiều hơn nữa.",
+    "keywords": "Wuthering Waves, Error404, game portal, RPG, action game, nhân vật game, tin tức game"
+  },
+  "pwa": {
+    "installTitle": "Cài đặt ứng dụng Error404",
+    "installDescription": "Trải nghiệm tốt nhất với ứng dụng gốc trên thiết bị của bạn.",
+    "install": "Cài đặt ngay",
+    "later": "Để sau",
+    "updateAvailable": "Có cập nhật mới!",
+    "updateDescription": "Phiên bản mới với nhiều tính năng thú vị.",
+    "update": "Cập nhật",
+    "feature": {
+      "fast": "Tốc độ nhanh chóng",
+      "mobile": "Thân thiện di động",
+      "notifications": "Thông báo ngay lập tức"
+    }
+  },
+  "feedback": {
+    "title": "Góp ý & Phản hồi",
+    "button": "Góp ý",
+    "message": "Tin nhắn của bạn",
+    "placeholder": "Chia sẻ ý kiến, đề xuất hoặc báo cáo lỗi để giúp chúng tôi cải thiện...",
+    "submit": "Gửi góp ý",
+    "success": "Cảm ơn bạn đã góp ý! Chúng tôi sẽ xem xét và cải thiện.",
+    "types": {
+      "suggestion": "Đề xuất",
+      "bug": "Báo lỗi",
+      "compliment": "Khen ngợi",
+      "other": "Khác"
+    }
+  }
+}

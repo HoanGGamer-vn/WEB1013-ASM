@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    
+    <!-- Home Page -->
+    <url>
+        <loc>https://error404.com/</loc>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://error404.com/?lang=vi"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://error404.com/?lang=en"/>
+        <lastmod>2024-10-15T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- News Page -->
+    <url>
+        <loc>https://error404.com/news</loc>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://error404.com/news?lang=vi"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://error404.com/news?lang=en"/>
+        <lastmod>2024-10-15T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Characters Page -->
+    <url>
+        <loc>https://error404.com/characters</loc>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://error404.com/characters?lang=vi"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://error404.com/characters?lang=en"/>
+        <lastmod>2024-10-15T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- World Page -->
+    <url>
+        <loc>https://error404.com/world</loc>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://error404.com/world?lang=vi"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://error404.com/world?lang=en"/>
+        <lastmod>2024-10-15T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Story Page -->
+    <url>
+        <loc>https://error404.com/story</loc>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://error404.com/story?lang=vi"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://error404.com/story?lang=en"/>
+        <lastmod>2024-10-15T00:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+</urlset>

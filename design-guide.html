@@ -580,9 +580,11 @@ ${getZoneSuggestion(zoneName)}
         }
 
         // Initialize
-        console.log('🎯 Layout Design Guide loaded successfully!');
-        console.log('💡 Click on zones to get detailed info');
-        console.log('⚙️ Use control panel to switch views');
+        if (import.meta.env.DEV) {
+            console.log('🎯 Layout Design Guide loaded successfully!');
+            console.log('💡 Click on zones to get detailed info');
+            console.log('⚙️ Use control panel to switch views');
+        }
     </script>
 </body>
 </html>

@@ -1,46 +1,59 @@
 <template>
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="container row">
       <!-- Logo Box -->
       <div class="logo-box">
-        <RouterLink to="/" class="logo">ERROR404</RouterLink>
+        <RouterLink to="/" class="logo" aria-label="Error404 - Go to homepage">ERROR404</RouterLink>
       </div>
 
       <!-- Menu Box -->
       <div class="menu-box">
-        <nav class="nav">
-          <RouterLink to="/"           :class="{active: isActive('/home')}">HOME</RouterLink>
-          <RouterLink to="/news"       :class="{active: isActive('/news')}">NEWS</RouterLink>
-          <RouterLink to="/characters" :class="{active: isActive('/characters')}">CHARACTERS</RouterLink>
-          <RouterLink to="/world"      :class="{active: isActive('/world')}">WORLD</RouterLink>
-          <RouterLink to="/story"      :class="{active: isActive('/story')}">STORY</RouterLink>
+        <nav id="navigation" class="nav" role="navigation" :aria-label="$t('nav.mainNavigation')">
+          <RouterLink to="/" 
+                      :class="{active: isActive('/home')}"
+                      :aria-current="isActive('/home') ? 'page' : undefined">
+            {{ $t('nav.home') }}
+          </RouterLink>
+          <RouterLink to="/news" 
+                      :class="{active: isActive('/news')}"
+                      :aria-current="isActive('/news') ? 'page' : undefined">
+            {{ $t('nav.news') }}
+          </RouterLink>
+          <RouterLink to="/characters" 
+                      :class="{active: isActive('/characters')}"
+                      :aria-current="isActive('/characters') ? 'page' : undefined">
+            {{ $t('nav.characters') }}
+          </RouterLink>
+          <RouterLink to="/story" 
+                      :class="{active: isActive('/story')}"
+                      :aria-current="isActive('/story') ? 'page' : undefined">
+            {{ $t('nav.story') }}
+          </RouterLink>
+          <RouterLink to="/world" 
+                      :class="{active: isActive('/world')}"
+                      :aria-current="isActive('/world') ? 'page' : undefined">
+            {{ $t('nav.world') }}
+          </RouterLink>
         </nav>
       </div>
 
       <!-- Controls Box -->
       <div class="controls-box">
-        <div class="language-dropdown" :class="{open: langOpen}">
-          <button class="chip" @click="langOpen = !langOpen">
-            {{ selectedLang }}
-            <span class="arrow">▾</span>
-          </button>
-          <div class="dropdown-menu" v-show="langOpen">
-            <a href="#" @click="selectLanguage('English')">🇺🇸 English</a>
-            <a href="#" @click="selectLanguage('Tiếng Việt')">🇻🇳 Tiếng Việt</a>
-            <a href="#" @click="selectLanguage('日本語')">🇯🇵 日本語</a>
-            <a href="#" @click="selectLanguage('한국어')">🇰🇷 한국어</a>
-            <a href="#" @click="selectLanguage('中文')">🇨🇳 中文</a>
-          </div>
-        </div>
+        <SearchBox />
+        <LanguageSwitcher />
         <button class="chip bgm-button" 
                 :class="{playing: isPlaying, paused: !isPlaying}" 
                 @click="toggleBGM" 
-                aria-label="BGM"
-                :title="isPlaying ? 'Pause BGM' : 'Play BGM'">
-          <span class="music-icon">♪</span>
+                :aria-label="isPlaying ? $t('header.pauseBgm') : $t('header.playBgm')"
+                :title="isPlaying ? $t('header.pauseBgm') : $t('header.playBgm')">
+          <span class="music-icon" aria-hidden="true">♪</span>
+          <span class="sr-only">{{ isPlaying ? $t('header.musicPlaying') : $t('header.musicPaused') }}</span>
         </button>
-        <button class="avatar" aria-label="User" @click="showLogin = true">
-          <img src="/images/btn-login.png" alt="User Avatar" />
+        <button class="avatar" 
+                :aria-label="$t('accessibility.openUserMenu')" 
+                @click="showLogin = true"
+                :title="$t('header.login')">
+          <img src="/images/btn-login.png" alt="" role="presentation" />
         </button>
       </div>
     </div>
@@ -53,11 +66,13 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import LoginModal from './LoginModal.vue'
+import LanguageSwitcher from './LanguageSwitcher.vue'
+import SearchBox from './SearchBox.vue'
 
 const route = useRoute()
-const langOpen = ref(false)
-const selectedLang = ref('English')
+const { t } = useI18n()
 
 // BGM functionality
 const isPlaying = ref(false)
@@ -67,11 +82,6 @@ const audio = ref<HTMLAudioElement | null>(null)
 const showLogin = ref(false)
 
 const isActive = (p:string) => route.path === p
-
-const selectLanguage = (lang: string) => {
-  selectedLang.value = lang
-  langOpen.value = false
-}
 
 // BGM controls
 const toggleBGM = () => {
@@ -99,25 +109,12 @@ const toggleBGM = () => {
       isPlaying.value = true
     }).catch(error => {
       console.error('Cannot play BGM:', error)
-      alert('Không thể phát nhạc. Kiểm tra console để xem lỗi chi tiết.')
+      alert(t('errors.videoLoad.description'))
     })
   }
 }
 
-// Click outside to close dropdown
-const handleClickOutside = (event: Event) => {
-  const target = event.target as Element
-  if (target && !target.closest('.language-dropdown')) {
-    langOpen.value = false
-  }
-}
-
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
-
 onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
   if (audio.value) {
     audio.value.pause()
     audio.value = null
@@ -162,23 +159,28 @@ onUnmounted(() => {
   justify-content:flex-end;
   margin-left:0px;
   margin-right:-320px;
+  flex-shrink:0;
+  min-width:0;
 }
 
 /* Language Dropdown */
 .language-dropdown{
   position:relative;
+  flex-shrink:0;
 }
 
 .language-dropdown .chip{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
+  gap:6px;
   cursor:pointer;
   transition:all 0.3s ease;
-  min-width:100px;
-  width:100px;
+  min-width:50px;
+  width:50px;
   text-align:center;
+  font-size:12px;
+  font-weight:600;
 }
 
 .language-dropdown .arrow{
@@ -193,16 +195,17 @@ onUnmounted(() => {
 .dropdown-menu{
   position:absolute;
   top:100%;
-  left:0;
   right:0;
   background:rgba(0,0,0,.9);
   border:1px solid color-mix(in oklab,var(--gold) 30%, transparent);
-  border-radius:10px;
+  border-radius:6px;
   backdrop-filter:blur(12px);
   margin-top:4px;
   padding:8px 0;
   z-index:100;
   animation:dropdownFade 0.3s ease;
+  min-width:150px;
+  white-space:nowrap;
 }
 
 @keyframes dropdownFade {
@@ -273,15 +276,17 @@ onUnmounted(() => {
 
 .chip{
   border:1px solid color-mix(in oklab,var(--gold) 30%, transparent);
-  background:transparent;
-  border-radius:10px;
+  background:rgba(0,0,0,.3);
+  border-radius:6px;
   color:var(--parchment);
-  padding:8px 16px;
-  font-size:14px;
+  padding:6px 12px;
+  font-size:12px;
   font-weight:500;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
+  flex-shrink:0;
+  backdrop-filter:blur(8px);
 }
 
 .avatar{
@@ -289,7 +294,7 @@ onUnmounted(() => {
   height:32px;
   border-radius:50%;
   border:1px solid color-mix(in oklab,var(--gold) 30%, transparent);
-  background:transparent;
+  background:rgba(0,0,0,.3);
   padding:0;
   overflow:hidden;
   display:flex;
@@ -297,6 +302,8 @@ onUnmounted(() => {
   justify-content:center;
   cursor:pointer;
   transition:all 0.3s ease;
+  flex-shrink:0;
+  backdrop-filter:blur(8px);
 }
 
 .avatar:hover{

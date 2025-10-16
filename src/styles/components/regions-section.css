@@ -1,0 +1,68 @@
+/* Regions Section Additional Animations */
+.regions-section .carousel-slide {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth hover effects for images */
+.region-image {
+  transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.main-image:hover {
+  transform: scale(1.02);
+}
+
+/* Enhanced glow effect for active elements */
+.main-image.active {
+  position: relative;
+}
+
+.main-image.active::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 17px;
+  background: linear-gradient(45deg, #C4AC7D, transparent, #C4AC7D);
+  z-index: -1;
+  opacity: 0.3;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #C4AC7D, 0 0 10px #C4AC7D, 0 0 15px #C4AC7D;
+  }
+  to {
+    box-shadow: 0 0 10px #C4AC7D, 0 0 20px #C4AC7D, 0 0 30px #C4AC7D;
+  }
+}
+
+/* Loading placeholder for images */
+.region-image:not([src]),
+.region-image[src=""] {
+  background: linear-gradient(45deg, #2d2d2d, #3d3d3d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C4AC7D;
+  font-size: 1rem;
+}
+
+.region-image:not([src])::before,
+.region-image[src=""]::before {
+  content: "Loading...";
+}

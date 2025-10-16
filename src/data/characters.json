@@ -1,0 +1,139 @@
+{
+  "factions": [
+    {
+      "id": "unknown",
+      "name": "UNKNOWN",
+      "slug": "unknown",
+      "icon": "/images/factions/unknown-icon.png",
+      "symbol": "/images/factions/unknown-symbol.png",
+      "description": "Intercontinental Traveler",
+      "lore": "Một tổ chức bí ẩn với những kẻ du hành xuyên lục địa...",
+      "region": "Various",
+      "founded": "Unknown",
+      "color": "#6b7280"
+    },
+    {
+      "id": "huanglong",
+      "name": "Huanglong",
+      "slug": "huanglong",
+      "icon": "/images/factions/huanglong-icon.png", 
+      "symbol": "/images/factions/huanglong-symbol.png",
+      "description": "The Golden Dynasty",
+      "lore": "Một vương quốc hùng mạnh với truyền thống lâu đời...",
+      "region": "Eastern Continent",
+      "founded": "Ancient Times",
+      "color": "#c4ac7d"
+    }
+  ],
+  "characters": [
+    {
+      "id": "rover-male",
+      "name": "Rover",
+      "slug": "rover-male",
+      "title": "Is this the beginning of a new journey? Brimming with novel sounds, and untold stories...",
+      "faction": "unknown",
+      "element": "Dark",
+      "rarity": 5,
+      "weapon": "Sword",
+      "gender": "Male",
+      "birthday": "Unknown",
+      "images": {
+        "portrait": "/images/characters/rover-male-portrait.png",
+        "full": "/images/characters/rover-male-full.png",
+        "icon": "/images/characters/rover-male-icon.png"
+      },
+      "stats": {
+        "hp": 2400,
+        "atk": 1200,
+        "def": 800,
+        "crit_rate": 15,
+        "crit_dmg": 50
+      },
+      "description": "Awakened with an unknown past, Rover embarks on a journey to uncover the truths. As secrets are unveiled, Rover establishes deeper connections with the world.",
+      "lore": "Tỉnh dậy với quá khứ bí ẩn, Rover bắt đầu hành trình khám phá sự thật...",
+      "skills": [
+        {
+          "id": "basic-attack",
+          "name": "Basic Attack",
+          "type": "Basic",
+          "description": "Perform up to 4 consecutive attacks",
+          "damage": "85% ATK per hit"
+        },
+        {
+          "id": "resonance-skill", 
+          "name": "Resonance Skill",
+          "type": "Skill",
+          "description": "Dash forward and deal damage",
+          "damage": "200% ATK",
+          "cooldown": "8s"
+        }
+      ],
+      "voice_actors": {
+        "jp": "Voice Actor JP",
+        "en": "Voice Actor EN", 
+        "cn": "Voice Actor CN"
+      },
+      "release_date": "2024-01-01",
+      "seo": {
+        "metaTitle": "Rover - Character Guide | Error404",
+        "metaDescription": "Complete guide for Rover character in Wuthering Waves",
+        "keywords": ["rover", "character", "wuthering waves", "guide"]
+      }
+    }
+  ],
+  "elements": [
+    {
+      "id": "dark",
+      "name": "Dark",
+      "color": "#4c1d95",
+      "icon": "/images/elements/dark.png"
+    },
+    {
+      "id": "light", 
+      "name": "Light",
+      "color": "#fbbf24",
+      "icon": "/images/elements/light.png"
+    },
+    {
+      "id": "fire",
+      "name": "Fire", 
+      "color": "#ef4444",
+      "icon": "/images/elements/fire.png"
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "color": "#3b82f6", 
+      "icon": "/images/elements/water.png"
+    },
+    {
+      "id": "wind",
+      "name": "Wind",
+      "color": "#10b981",
+      "icon": "/images/elements/wind.png"
+    },
+    {
+      "id": "earth",
+      "name": "Earth",
+      "color": "#a3a3a3",
+      "icon": "/images/elements/earth.png"
+    }
+  ],
+  "weapons": [
+    {
+      "id": "sword",
+      "name": "Sword",
+      "icon": "/images/weapons/sword.png"
+    },
+    {
+      "id": "bow",
+      "name": "Bow", 
+      "icon": "/images/weapons/bow.png"
+    },
+    {
+      "id": "catalyst",
+      "name": "Catalyst",
+      "icon": "/images/weapons/catalyst.png" 
+    }
+  ]
+}

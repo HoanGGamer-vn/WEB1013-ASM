@@ -9,13 +9,9 @@
   </div>
 </template>
 
-<script>
-// Cách 1: Import CSS vào component
+<script setup lang="ts">
+// Import CSS vào component
 import './SocialBar.css'
-
-export default {
-  name: 'SocialBar'
-}
 </script>
 
 <style scoped>

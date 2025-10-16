@@ -1,6 +1,24 @@
 <template>
   <section class="hero">
-    <div class="bg"></div>
+    <!-- Background Video -->
+    <video 
+      class="bg-video" 
+      autoplay 
+      muted 
+      loop 
+      playsinline
+      preload="metadata"
+      crossorigin="anonymous"
+      @loadeddata="onVideoLoaded"
+      @error="onVideoError"
+      @canplay="onVideoCanPlay"
+    >
+      <source src="/video/bg-home.mp4" type="video/mp4">
+      <!-- Fallback message -->
+      Trình duyệt của bạn không hỗ trợ video HTML5.
+    </video>
+    <!-- Fallback background image -->
+    <div class="bg-fallback" :class="{ 'show': showFallback }"></div>
     <div class="overlay"></div>
     <div class="noise"></div>
 
@@ -17,10 +35,12 @@
         </div>
         <iframe 
           v-else
-          :src="videoUrl" 
+          :src="videoUrl"
           frameborder="0" 
           allowfullscreen
-          allow="autoplay; encrypted-media; picture-in-picture"
+          allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          sandbox="allow-scripts allow-same-origin allow-presentation"
           width="800"
           height="450"
           title="Game Trailer"
@@ -32,6 +52,7 @@
     <SocialBar />
     <PatchBanner />
     <DownloadStrip />
+    
   </section>
 </template>
 
@@ -41,27 +62,30 @@ import SocialBar from '@/components/common/SocialBar.vue'
 import PatchBanner from '@/components/common/PatchBanner.vue'
 import DownloadStrip from '@/components/home/DownloadStrip.vue'
 
+// Background video functionality
+const showFallback = ref(true) // Start with fallback until video loads
+
 // Video trailer functionality
 const showVideo = ref(false)
 const videoUrl = ref('')
 const videoError = ref(false)
 
 const playTrailer = () => {
-  // URL trailer video với full parameters để bypass restrictions
-  const rickRollUrls = [
-    'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1&iv_load_policy=3',
-    'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0&controls=1&rel=0',
-    'https://www.youtube.com/embed/oHg5SJYRHA0?autoplay=1&controls=1&rel=0' // Alternative Rick Roll
+  // URL trailer video với parameters để bypass restrictions
+  const workingUrls = [
+    'https://www.youtube-nocookie.com/embed/ScMzIvxBSi4?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&origin=' + window.location.origin,
+    'https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&origin=' + window.location.origin,
+    'https://www.youtube-nocookie.com/embed/jNQXAC9IVRw?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&origin=' + window.location.origin
   ]
   
-  // Try first URL
-  videoUrl.value = rickRollUrls[0]
+  // Try first URL (nocookie version is less restricted)
+  videoUrl.value = workingUrls[0]
   showVideo.value = true
+  videoError.value = false
   
-  console.log('Playing Rick Roll video...', videoUrl.value)
-  
-  // Pause BGM nếu đang phát (tùy chọn)
-  // Có thể emit event để pause BGM từ Header
+  if (location.hostname === 'localhost') {
+    console.log('Playing trailer video...', videoUrl.value)
+  }
 }
 
 const closeVideo = () => {
@@ -76,14 +100,60 @@ const handleVideoError = () => {
 }
 
 const openInNewTab = () => {
-  window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')
+  window.open('https://www.youtube.com/watch?v=ScMzIvxBSi4', '_blank')
   closeVideo()
 }
+
+// Background video handlers
+const onVideoLoaded = () => {
+  if (location.hostname === 'localhost') {
+    console.log('Background video loaded successfully from /video/bg-home.mp4')
+  }
+  showFallback.value = false
+}
+
+const onVideoCanPlay = () => {
+  if (location.hostname === 'localhost') {
+    console.log('Background video can start playing')
+  }
+  showFallback.value = false
+}
+
+const onVideoError = (event: Event) => {
+  if (location.hostname === 'localhost') {
+    console.warn('Background video failed to load, showing fallback image', event)
+  }
+  showFallback.value = true
+}
+
 </script>
 
 <style scoped>
 .hero{position:relative;height:100vh;overflow:hidden;margin:0;padding:0}
-.bg{position:absolute;inset:0;background:url('/images/bg-home.png') center/cover no-repeat;z-index:1}
+
+/* Background Video */
+.bg-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+}
+
+/* Fallback Background Image */
+.bg-fallback{
+  position:absolute;
+  inset:0;
+  background:url('/images/bg-home.png') center/cover no-repeat;
+  z-index:1;
+  opacity:0;
+  transition:opacity 0.5s ease;
+}
+
+.bg-fallback.show{
+  opacity:1;
+}
 .overlay{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 45%,rgba(196,172,125,.22) 0%,transparent 70%);mix-blend-mode:soft-light;z-index:2}
 .noise{position:absolute;inset:0;background:url('/images/noise.png') repeat;opacity:.12;pointer-events:none;z-index:3}
 

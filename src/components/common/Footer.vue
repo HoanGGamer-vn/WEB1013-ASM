@@ -1,9 +1,12 @@
 <template>
   <footer class="site-footer">
-    <div class="container">© {{year}} Error404</div>
+    <div class="container">{{ $t('footer.copyright', { year }) }}</div>
   </footer>
 </template>
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 const year = new Date().getFullYear()
 </script>
 <style scoped>
