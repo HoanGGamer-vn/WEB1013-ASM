@@ -1,0 +1,61 @@
+/*
+ * Image loading optimization for GitHub Pages
+ * Optimizes loading of large images (>100KB)
+ */
+
+/* Add loading states for large images */
+.character-image,
+.background-image,
+.large-image {
+  transition: opacity 0.3s ease;
+}
+
+.character-image[data-loading="true"],
+.background-image[data-loading="true"],
+.large-image[data-loading="true"] {
+  opacity: 0.3;
+  filter: blur(2px);
+}
+
+.character-image[data-loading="false"],
+.background-image[data-loading="false"], 
+.large-image[data-loading="false"] {
+  opacity: 1;
+  filter: none;
+}
+
+/* Loading placeholder for failed images */
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #1a1a1a, #333);
+  color: #888;
+  border-radius: 8px;
+  min-height: 100px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.image-placeholder::before {
+  content: "🖼️ Loading...";
+  display: block;
+}
+
+.image-error {
+  background: linear-gradient(45deg, #2a1a1a, #4a2a2a);
+  color: #ff6b6b;
+}
+
+.image-error::before {
+  content: "⚠️ Image not available";
+}
+
+/* Optimize background images */
+.bg-home,
+.bg-other {
+  background-size: cover;
+  background-position: center;
+  /* Fallback for failed loads */
+  background-color: #1a1a1a;
+}
