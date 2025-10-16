@@ -32,6 +32,15 @@ jobs:
       env:
         NODE_ENV: production
         
+    - name: Debug - List dist contents
+      run: |
+        echo "=== Dist folder contents ==="
+        ls -la dist/
+        echo "=== Images folder ==="
+        ls -la dist/images/ || echo "Images folder missing!"
+        echo "=== Assets folder ==="
+        ls -la dist/assets/ || echo "Assets folder missing!"
+        
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
