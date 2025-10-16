@@ -13,7 +13,8 @@
     <meta name="keywords" content="Wuthering Waves, Error404, game portal, RPG, action game, nhân vật game, tin tức game" />
     <meta name="author" content="Error404 Team" />
     
-    <!-- Security Headers -->
+    <!-- Security Headers - Temporarily disabled for debugging -->
+    <!--
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self'; 
       script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.youtube.com https://www.youtube-nocookie.com https://connect.facebook.net https://platform.twitter.com https://apis.google.com https://www.gstatic.com; 
@@ -29,6 +30,7 @@
       form-action 'self';
       upgrade-insecure-requests;
     ">
+    -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
@@ -95,6 +97,7 @@
   </head>
   <body>
     <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
     
     <!-- Development cache clearing tool -->
     <script>
@@ -121,6 +124,5 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0&appId=123456789012345"></script>
     
-    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

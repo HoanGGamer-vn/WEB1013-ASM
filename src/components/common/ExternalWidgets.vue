@@ -215,8 +215,8 @@
                 <div><strong style="color: var(--gold);">🔧 Debug Info</strong></div>
                 <div>URL: {{ currentUrl.substring(0, 40) }}...</div>
                 <div>FB SDK: {{ fbSdkLoaded ? '✅ Loaded' : '⏳ Loading...' }}</div>
-                <div>Twitter SDK: {{ typeof window.twttr !== 'undefined' ? '✅ Loaded' : '⏳ Loading...' }}</div>
-                <div>YouTube SDK: {{ typeof window.gapi !== 'undefined' ? '✅ Loaded' : '⏳ Loading...' }}</div>
+                <div>Twitter SDK: {{ typeof (window as any).twttr !== 'undefined' ? '✅ Loaded' : '⏳ Loading...' }}</div>
+                <div>YouTube SDK: {{ typeof (window as any).gapi !== 'undefined' ? '✅ Loaded' : '⏳ Loading...' }}</div>
                 
                 <div style="margin-top: 8px; display: flex; gap: 4px; flex-wrap: wrap;">
                   <button @click="testFacebookSDK" style="padding: 4px 8px; font-size: 10px; background: #1877F2; color: white; border: none; border-radius: 4px;">
