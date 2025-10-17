@@ -1,0 +1,84 @@
+{
+  "name": "Error404 - Wuthering Waves Portal",
+  "short_name": "Error404",
+  "description": "Official Wuthering Waves game portal with news, characters, and world information",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1a1a1a",
+  "background_color": "#000000",
+  "lang": "vi",
+  "scope": "/",
+  "categories": ["games", "entertainment", "news"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "72x72 96x96 128x128 144x144 152x152 192x192 384x384 512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Latest News",
+      "short_name": "News",
+      "description": "View latest game news and updates",
+      "url": "/news",
+      "icons": [
+        {
+          "src": "/icons/news-shortcut.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Characters",
+      "short_name": "Characters", 
+      "description": "Browse game characters and resonators",
+      "url": "/characters",
+      "icons": [
+        {
+          "src": "/icons/characters-shortcut.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "World Explorer",
+      "short_name": "World",
+      "description": "Explore the game world and regions",
+      "url": "/world",
+      "icons": [
+        {
+          "src": "/icons/world-shortcut.png", 
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-home.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/mobile-home.png",
+      "sizes": "375x812",
+      "type": "image/png", 
+      "form_factor": "narrow"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Debug Test</title>
+</head>
+<body>
+    <h1>GitHub Pages Image Path Debug</h1>
+    
+    <h2>Test 1: Absolute Paths</h2>
+    <p>Path: /WEB1013-ASM/images/btn-login.png</p>
+    <img src="/WEB1013-ASM/images/btn-login.png" alt="Login Button (absolute)" style="border: 2px solid red; margin: 10px;" />
+    
+    <h2>Test 2: Relative Paths</h2>
+    <p>Path: ./images/btn-login.png</p>
+    <img src="./images/btn-login.png" alt="Login Button (relative)" style="border: 2px solid blue; margin: 10px;" />
+    
+    <h2>Test 3: Base Relative</h2>
+    <p>Path: images/btn-login.png</p>
+    <img src="images/btn-login.png" alt="Login Button (base relative)" style="border: 2px solid green; margin: 10px;" />
+    
+    <h2>Current Location Info:</h2>
+    <p>Window location: <span id="location"></span></p>
+    <p>Base URL: <span id="baseUrl"></span></p>
+    
+    <script>
+        document.getElementById('location').textContent = window.location.href;
+        document.getElementById('baseUrl').textContent = window.location.origin + '/WEB1013-ASM/';
+        
+        // Test image loading
+        const images = document.querySelectorAll('img');
+        images.forEach((img, index) => {
+            img.onload = function() {
+                console.log(`✅ Image ${index + 1} loaded successfully:`, this.src);
+                this.style.borderColor = 'green';
+            };
+            img.onerror = function() {
+                console.log(`❌ Image ${index + 1} failed to load:`, this.src);
+                this.style.borderColor = 'red';
+                this.alt += ' [FAILED]';
+            };
+        });
+    </script>
+</body>
+</html>
