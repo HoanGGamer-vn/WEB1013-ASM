@@ -155,6 +155,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { asset } from '@/utils/asset'
 
 const currentIndex = ref(0)
 const isTransitioning = ref(false)
@@ -168,41 +169,41 @@ const stories = ref([
     id: 1,
     title: "Solaris-3",
     description: "Sol-III, the third planet from the sun. A world of chaos and change, where old conventions are discarded and disasters run rampant. Human civilization struggles to survive in this new era of destruction and rebirth, facing uncharted challenges with unwavering determination.",
-    image: "/images/i-slls-cab62db7.png",
-    thumbnail: "/images/demo1.png",
-    icon: "/images/icon-01.png"
+    image: asset('/images/i-slls-cab62db7.png'),
+    thumbnail: asset('/images/demo1.png'),
+    icon: asset('/images/icon-01.png')
   },
   {
     id: 2,
     title: "Waveworn Phenomenon",
     description: "The Lament's power causes destructive anomalies, such as the \"Tacet Fields\", \"Tacet Discord Outbreaks\", and the mysterious matter named \"Tacetite\". These are collectively known as the \"Waveworn Phenomena\"",
-    image: "/images/i-hy-09f3521f.png", 
-    thumbnail: "/images/demo2.png",
-    icon: "/images/icon-02.png"
+    image: asset('/images/i-hy-09f3521f.png'), 
+    thumbnail: asset('/images/demo2.png'),
+    icon: asset('/images/icon-02.png')
   },
   {
     id: 3,
     title: "Lament",
     description: "The term \"Lament\" refers to the ongoing catastrophic events on Solaris-3. Since the first Lament, destruction has been nonstop and unyielding. The tide of devastation continues without pause, with no signs of slowing down.",
-    image: "/images/i-lament-494f6f60.png",
-    thumbnail: "/images/zhezhi-6698177e.png", 
-    icon: "/images/icon-03.png"
+    image: asset('/images/i-lament-494f6f60.png'),
+    thumbnail: asset('/images/zhezhi-6698177e.png'), 
+    icon: asset('/images/icon-03.png')
   },
   {
     id: 4,
     title: "Tacet Field",
     description: "The \"Tacet Fields\" are thought to be where all Tacet Discords originate. These locations feature a sky of inverted seas and a deep cross-shaped Tacet Mark on the ground. Reverberations fill the air, linking our world to an unknown space through a white Resonance Cord. These areas attract gatherings of Tacet Discords.",
-    image: "/images/i-wyq-c9219c4a.png",
-    thumbnail: "/images/changli-3da788f2.png",
-    icon: "/images/icon-04.png"
+    image: asset('/images/i-wyq-c9219c4a.png'),
+    thumbnail: asset('/images/changli-3da788f2.png'),
+    icon: asset('/images/icon-04.png')
   },
   {
     id: 5,
     title: "Resonator",
     description: "Individuals with the ability to resonate with certain objects and manipulate their frequencies are known as \"Resonators\". These individuals exhibit unique \"Resonance Abilities\", also known as their \"Fortes\", through the \"Tacet Mark\" on their bodies. According to experts, a Resonator's abilities are often influenced by their past experiences and subconscious mind.",
-    image: "/images/i-gmz-6b5708bb.png",
-    thumbnail: "/images/yinlin-9f681990.png",
-    icon: "/images/icon-05.png"
+    image: asset('/images/i-gmz-6b5708bb.png'),
+    thumbnail: asset('/images/yinlin-9f681990.png'),
+    icon: asset('/images/icon-05.png')
   }
 ])
 

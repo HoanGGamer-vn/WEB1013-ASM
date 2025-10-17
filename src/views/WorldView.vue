@@ -19,6 +19,7 @@
 
 <script>
 import RegionsSection from '@/components/common/RegionsSection.vue'
+import { asset } from '@/utils/asset'
 
 export default {
   name: 'WorldView',
@@ -32,31 +33,31 @@ export default {
           id: 1,
           name: 'Mystic Forest',
           description: 'A magical forest filled with ancient trees and mysterious creatures. Explore the hidden secrets within the enchanted woods.',
-          image: '/images/14-4d3e99bc.png'
+          image: asset('/images/14-4d3e99bc.png')
         },
         {
           id: 2,
           name: 'Capitoline Foothills',
           description: 'An area at the base of Capitoline Hill, near the Borderline Fort. Herds graze in peace throughout lush pastures, and scattered villages nestle among ancient ruins. Yet even in such tranquility, small arenas remain a vital part of life.',
-          image: '/images/15-dc6f877b.png'
+          image: asset('/images/15-dc6f877b.png')
         },
         {
           id: 3,
           name: 'Avinoleum',
           description: 'Once a theological seminary of Rinascita, it now rests in the boundless expanse of clouds. It once recorded Rinascita\'s glory and grandeur, along with countless unspeakable secrets.',
-          image: '/images/16-24e3dc02.png'
+          image: asset('/images/16-24e3dc02.png')
         },
         {
           id: 4,
           name: 'Vault Underground',
           description: 'Tucked beneath the Sea of Clouds lies a vast depository zone of the Averardo Vault. Each item moved to the Vault will be meticulously transported to its designated storage location, where it will be safeguarded with the utmost care and precision.',
-          image: '/images/09-a6e93cc1.png'
+          image: asset('/images/09-a6e93cc1.png')
         },
         {
           id: 5,
           name: 'Penitent\'s End',
           description: 'This forsaken island, shrouded in dense sea mist, is dominated by steep cliffs with giant ringed structures. Ships caught in the currents often end up stranded on the island\'s treacherous shores. For those lucky enough to survive the wreck, even greater horrors await...',
-          image: '/images/03-929d60ff.png'
+          image: asset('/images/03-929d60ff.png')
         }
       ]
     }

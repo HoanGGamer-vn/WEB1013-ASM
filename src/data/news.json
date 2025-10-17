@@ -10,14 +10,14 @@
       "tags": ["update", "new-content", "story"],
       "author": {
         "name": "Error404 Team",
-        "avatar": "/images/author-avatar.png"
+    "avatar": "images/author-avatar.png"
       },
       "publishedAt": "2024-01-15T09:00:00Z",
       "updatedAt": "2024-01-15T09:00:00Z",
       "featured": true,
       "readTime": 5,
       "image": {
-        "url": "/images/news/news-1.jpg",
+  "url": "images/news/news-1.jpg",
         "alt": "Wuthering Waves Ver 2.0 banner"
       },
       "seo": {
@@ -36,14 +36,14 @@
       "tags": ["event", "limited-time", "rewards"],
       "author": {
         "name": "Event Team",
-        "avatar": "/images/author-avatar.png"
+    "avatar": "images/author-avatar.png"
       },
       "publishedAt": "2024-01-10T14:30:00Z",
       "updatedAt": "2024-01-10T14:30:00Z",
       "featured": false,
       "readTime": 3,
       "image": {
-        "url": "/images/news/news-2.jpg",
+  "url": "images/news/news-2.jpg",
         "alt": "Lunar New Year Event banner"
       },
       "seo": {

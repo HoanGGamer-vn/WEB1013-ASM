@@ -27,12 +27,12 @@ import './SocialBar.css'
   cursor:pointer;
 }
 
-.social a[aria-label="X"]        {background-image:url('/images/social-x.png')}
-.social a[aria-label="Facebook"] {background-image:url('/images/social-facebook.png')}
-.social a[aria-label="Discord"]  {background-image:url('/images/social-discord.png')}
-.social a[aria-label="YouTube"]  {background-image:url('/images/social-youtube.png')}
-.social a[aria-label="Reddit"]   {background-image:url('/images/social-reddit.png')}
-.social a[aria-label="TikTok"]   {background-image:url('/images/social-tiktok.png')}
+.social a[aria-label="X"]        {background-image:url('../images/social-x.png')}
+.social a[aria-label="Facebook"] {background-image:url('../images/social-facebook.png')}
+.social a[aria-label="Discord"]  {background-image:url('../images/social-discord.png')}
+.social a[aria-label="YouTube"]  {background-image:url('../images/social-youtube.png')}
+.social a[aria-label="Reddit"]   {background-image:url('../images/social-reddit.png')}
+.social a[aria-label="TikTok"]   {background-image:url('../images/social-tiktok.png')}
 
 .social a:hover{
   opacity:1;

@@ -4,8 +4,8 @@
       "id": "unknown",
       "name": "UNKNOWN",
       "slug": "unknown",
-      "icon": "/images/factions/unknown-icon.png",
-      "symbol": "/images/factions/unknown-symbol.png",
+  "icon": "images/factions/unknown-icon.png",
+  "symbol": "images/factions/unknown-symbol.png",
       "description": "Intercontinental Traveler",
       "lore": "Một tổ chức bí ẩn với những kẻ du hành xuyên lục địa...",
       "region": "Various",
@@ -16,8 +16,8 @@
       "id": "huanglong",
       "name": "Huanglong",
       "slug": "huanglong",
-      "icon": "/images/factions/huanglong-icon.png", 
-      "symbol": "/images/factions/huanglong-symbol.png",
+  "icon": "images/factions/huanglong-icon.png", 
+  "symbol": "images/factions/huanglong-symbol.png",
       "description": "The Golden Dynasty",
       "lore": "Một vương quốc hùng mạnh với truyền thống lâu đời...",
       "region": "Eastern Continent",
@@ -38,9 +38,9 @@
       "gender": "Male",
       "birthday": "Unknown",
       "images": {
-        "portrait": "/images/characters/rover-male-portrait.png",
-        "full": "/images/characters/rover-male-full.png",
-        "icon": "/images/characters/rover-male-icon.png"
+  "portrait": "images/characters/rover-male-portrait.png",
+  "full": "images/characters/rover-male-full.png",
+  "icon": "images/characters/rover-male-icon.png"
       },
       "stats": {
         "hp": 2400,
@@ -86,54 +86,54 @@
       "id": "dark",
       "name": "Dark",
       "color": "#4c1d95",
-      "icon": "/images/elements/dark.png"
+  "icon": "images/elements/dark.png"
     },
     {
       "id": "light", 
       "name": "Light",
       "color": "#fbbf24",
-      "icon": "/images/elements/light.png"
+  "icon": "images/elements/light.png"
     },
     {
       "id": "fire",
       "name": "Fire", 
       "color": "#ef4444",
-      "icon": "/images/elements/fire.png"
+  "icon": "images/elements/fire.png"
     },
     {
       "id": "water",
       "name": "Water",
       "color": "#3b82f6", 
-      "icon": "/images/elements/water.png"
+  "icon": "images/elements/water.png"
     },
     {
       "id": "wind",
       "name": "Wind",
       "color": "#10b981",
-      "icon": "/images/elements/wind.png"
+  "icon": "images/elements/wind.png"
     },
     {
       "id": "earth",
       "name": "Earth",
       "color": "#a3a3a3",
-      "icon": "/images/elements/earth.png"
+  "icon": "images/elements/earth.png"
     }
   ],
   "weapons": [
     {
       "id": "sword",
       "name": "Sword",
-      "icon": "/images/weapons/sword.png"
+  "icon": "images/weapons/sword.png"
     },
     {
       "id": "bow",
       "name": "Bow", 
-      "icon": "/images/weapons/bow.png"
+  "icon": "images/weapons/bow.png"
     },
     {
       "id": "catalyst",
       "name": "Catalyst",
-      "icon": "/images/weapons/catalyst.png" 
+  "icon": "images/weapons/catalyst.png" 
     }
   ]
 }

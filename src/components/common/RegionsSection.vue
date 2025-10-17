@@ -15,7 +15,7 @@
     <!-- Header với tiêu đề bằng hình ảnh -->
     <div class="section-title" :class="{ 'title-animate': isLoaded }">
       <div class="title-glow-bg"></div>
-      <img class="title-image" src="/images/img_bane.png" alt="New Regions" />
+      <img class="title-image" :src="asset('/images/img_bane.png')" alt="New Regions" />
       <div class="title-rays"></div>
     </div>
 
@@ -115,6 +115,8 @@
 </template>
 
 <script>
+import { asset } from '@/utils/asset'
+
 export default {
   name: 'RegionsSection',
   props: {
@@ -125,25 +127,25 @@ export default {
           id: 1,
           name: 'Border Mountains',
 description: "A precipitous mountain range that marks the border of Septimont. The craggy peaks form a natural barrier between Septimont and the outside world. During the first outbreak of the Dark Tide, the Border Mountains bore the brunt, leaving them forever scarred by ashen traces and Tidal Blight calcification.",
-          image: '/images/'
+          image: asset('/images/')
         },
         {
           id: 2,
           name: 'Crystal Caverns',
           description: 'Underground caves sparkling with precious crystals and dangerous monsters lurking in the shadows.',
-          image: '/images/regions/crystal-caverns.jpg'
+          image: asset('/images/regions/crystal-caverns.jpg')
         },
         {
           id: 3,
           name: 'Floating Islands',
           description: 'Sky-high islands connected by mystical bridges, home to aerial creatures and wind magic.',
-          image: '/images/regions/floating-islands.jpg'
+          image: asset('/images/regions/floating-islands.jpg')
         },
         {
           id: 4,
           name: 'Volcanic Peaks',
           description: 'Treacherous mountains with active volcanoes, inhabited by fire elementals and lava beasts.',
-          image: '/images/regions/volcanic-peaks.jpg'
+          image: asset('/images/regions/volcanic-peaks.jpg')
         }
       ]
     }

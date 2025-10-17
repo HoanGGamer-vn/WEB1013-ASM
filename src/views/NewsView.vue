@@ -198,6 +198,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { asset } from '@/utils/asset'
 
 // Reactive data
 const searchQuery = ref('')
@@ -242,7 +243,7 @@ const allNews = ref([
     category: 'updates',
     date: new Date('2024-01-15'),
     readTime: 5,
-    image: '/images/bg-other.png',
+  image: asset('/images/bg-other.png'),
     featured: true
   },
   {
@@ -252,7 +253,7 @@ const allNews = ref([
     category: 'events',
     date: new Date('2024-01-10'),
     readTime: 3,
-    image: '/images/bg-home.png'
+  image: asset('/images/bg-home.png')
   },
   {
     id: 3,
@@ -261,7 +262,7 @@ const allNews = ref([
     category: 'patches',
     date: new Date('2024-01-08'),
     readTime: 2,
-    image: '/images/bg-other.png'
+  image: asset('/images/bg-other.png')
   },
   {
     id: 4,
@@ -270,7 +271,7 @@ const allNews = ref([
     category: 'community',
     date: new Date('2024-01-05'),
     readTime: 4,
-    image: '/images/bg-home.png'
+  image: asset('/images/bg-home.png')
   },
   {
     id: 5,
@@ -279,7 +280,7 @@ const allNews = ref([
     category: 'announcements',
     date: new Date('2024-01-03'),
     readTime: 1,
-    image: '/images/bg-other.png'
+  image: asset('/images/bg-other.png')
   },
   {
     id: 6,
@@ -288,7 +289,7 @@ const allNews = ref([
     category: 'updates',
     date: new Date('2024-01-01'),
     readTime: 6,
-    image: '/images/bg-home.png'
+  image: asset('/images/bg-home.png')
   }
 ])
 

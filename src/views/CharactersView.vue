@@ -31,7 +31,7 @@
               @click="setActiveFaction(index)"
             >
               <img 
-                :src="faction.icon" 
+                :src="asset(faction.icon)" 
                 :alt="faction.name"
                 class="faction-icon"
                 loading="lazy"
@@ -102,7 +102,7 @@
             >
               <figure class="character-slide-figure">
                 <img 
-                  :src="character.image" 
+                  :src="asset(character.image)" 
                   :alt="character.name"
                   class="character-slide-image"
                   loading="lazy"
@@ -121,6 +121,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { asset } from '@/utils/asset'
 
 // Character symbol constants
 const CHARACTER_SYMBOLS = {
@@ -157,14 +158,14 @@ const currentPage = ref(0)
 const factions = ref<Faction[]>([
   {
     name: 'UNKNOWN',
-    icon: '/images/icon-01.png',
-    symbol: '/images/symbol-huanglong.png',
+  icon: asset('/images/icon-01.png'),
+  symbol: asset('/images/symbol-huanglong.png'),
     description: 'Intercontinental Traveler',
     characters: [
       {
         name: 'Rover',
         title: 'Is this the beginning of a new journey? Brimming with novel sounds, and untold stories...',
-        image: '/images/demo1.png',
+  image: asset('/images/demo1.png'),
         element: 'Dark',
         rarity: 5,
         weapon: 'Bow',
@@ -173,7 +174,7 @@ const factions = ref<Faction[]>([
       {
         name: 'Rover',
         title: 'Is this the beginning of a new journey? Brimming with novel sounds, and untold stories...',
-        image: '/images/demo2.png',
+  image: asset('/images/demo2.png'),
         element: 'Dark',
         rarity: 5,
         weapon: 'Sword',
@@ -183,14 +184,14 @@ const factions = ref<Faction[]>([
   },
   {
     name: 'HUANG LONG',
-    icon: '/images/icon-02.png',
-    symbol: '/images/symbol-federation.png',
+      icon: asset('/images/icon-02.png'),
+    symbol: asset('/images/symbol-federation.png'),
     description: "HUANG LONG",
     characters: [
       {
         name: 'Yinlin',
         title: 'Name\'s Yinlin. As for what I do... Shhh, we don\'t talk about that in public.',
-        image: '/images/yinlin-9f681990.png',
+  image: asset('/images/yinlin-9f681990.png'),
         element: 'Spectro',
         rarity: 5,
         weapon: 'Sword',
@@ -199,7 +200,7 @@ description: 'Previously known as an outstanding Jinzhou Patroller, Yinlin is st
       {
         name: 'Zhezhi',
         title: 'What I wanted to say is, the sunlight on you right now is so beautiful. Can I... paint you?',
-        image: '/images/zhezhi-6698177e.png',
+  image: asset('/images/zhezhi-6698177e.png'),
         element: 'Fusion',
         rarity: 5,
         weapon: 'Rectifier',
@@ -208,7 +209,7 @@ description: 'Previously known as an outstanding Jinzhou Patroller, Yinlin is st
       {
         name: 'Changli',
         title: 'Eons of time on this vast land, all encapsulated in a humble game...I am fortunate to have you as my opponent.',
-        image: '/images/changli-3da788f2.png',
+  image: asset('/images/changli-3da788f2.png'),
         element: 'Fusion',
         rarity: 5,
         weapon: 'Rectifier',
@@ -218,14 +219,14 @@ description: 'Previously known as an outstanding Jinzhou Patroller, Yinlin is st
   },
   {
     name: 'BLACK SHORES',
-    icon: '/images/icon-03.png',
-    symbol: '/images/symbol-blackshores.png',
+  icon: asset('/images/icon-03.png'),
+  symbol: asset('/images/symbol-blackshores.png'),
     description: 'BLACK SHORES',
     characters: [
       {
         name: 'The Shorekeeper',
         title: '"The Shorekeeper"... This name suits me well enough. It aligns with my purpose and drive: they only exist because of you.',
-        image: '/images/cantarella-f997fb74.png',
+  image: asset('/images/cantarella-f997fb74.png'),
         element: 'Spectro',
         rarity: 5,
         weapon: 'Rectifier',
@@ -234,7 +235,7 @@ description: 'Previously known as an outstanding Jinzhou Patroller, Yinlin is st
       {
         name: 'The Shorekeeper',
         title: '"The Shorekeeper"... This name suits me well enough. It aligns with my purpose and drive: they only exist because of you.',
-        image: '/images/cantarella-f997fb74.png',
+        image: asset('/images/cantarella-f997fb74.png'),
         element: 'Spectro',
         rarity: 5,
         weapon: 'Rectifier',
@@ -243,7 +244,7 @@ description: 'Previously known as an outstanding Jinzhou Patroller, Yinlin is st
       {
         name: 'The Shorekeeper',
         title: '"The Shorekeeper"... This name suits me well enough. It aligns with my purpose and drive: they only exist because of you.',
-        image: '/images/cantarella-f997fb74.png',
+        image: asset('/images/cantarella-f997fb74.png'),
         element: 'Spectro',
         rarity: 5,
         weapon: 'Rectifier',
@@ -253,14 +254,14 @@ description: 'Previously known as an outstanding Jinzhou Patroller, Yinlin is st
   },
   {
     name: 'Midnight Rangers',
-    icon: '/images/icon-04.png',
-    symbol: '/images/symbol-rangers.png',
+  icon: asset('/images/icon-04.png'),
+  symbol: asset('/images/symbol-rangers.png'),
     description: 'Elite scouts and protectors of the wilderness',
     characters: [
       {
         name: 'Aalto',
         title: 'The Mist Walker',
-        image: '/images/character4-1.jpg',
+  image: asset('/images/character4-1.jpg'),
         element: 'Aero',
         rarity: 4,
         weapon: 'Pistols',
@@ -270,14 +271,14 @@ description: 'Previously known as an outstanding Jinzhou Patroller, Yinlin is st
   },
   {
     name: 'Ghost Hounds',
-    icon: '/images/icon-05.png',
-    symbol: '/images/symbol-ghosts.png',
+  icon: asset('/images/icon-05.png'),
+  symbol: asset('/images/symbol-ghosts.png'),
     description: 'Mercenaries and outcasts seeking redemption',
     characters: [
       {
         name: 'Danjin',
         title: 'The Blood Blade',
-        image: '/images/character5-1.jpg',
+  image: asset('/images/character5-1.jpg'),
         element: 'Havoc',
         rarity: 4,
         weapon: 'Sword',
@@ -287,14 +288,14 @@ description: 'Previously known as an outstanding Jinzhou Patroller, Yinlin is st
   },
   {
     name: 'Sentinel Corps',
-    icon: '/images/icon-06.png',
-    symbol: '/images/symbol-sentinel.png',
+  icon: asset('/images/icon-06.png'),
+  symbol: asset('/images/symbol-sentinel.png'),
     description: 'Elite guardians of ancient secrets',
     characters: [
       {
         name: 'Jiyan',
         title: 'The Dragon General',
-        image: '/images/character6-1.jpg',
+  image: asset('/images/character6-1.jpg'),
         element: 'Aero',
         rarity: 5,
         weapon: 'Broadblade',
@@ -304,14 +305,14 @@ description: 'Previously known as an outstanding Jinzhou Patroller, Yinlin is st
   },
   {
     name: 'Crystal Order',
-    icon: '/images/icon-07.png',
-    symbol: '/images/symbol-crystal.png',
+  icon: asset('/images/icon-07.png'),
+  symbol: asset('/images/symbol-crystal.png'),
     description: 'Masters of crystalline energy and ancient knowledge',
     characters: [
       {
         name: 'Verina',
         title: 'The Crystal Sage',
-        image: '/images/character7-1.jpg',
+  image: asset('/images/character7-1.jpg'),
         element: 'Spectro',
         rarity: 5,
         weapon: 'Rectifier',

@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { asset } from '@/utils/asset'
 
 // Featured news data (this should match the data from NewsView)
 const featuredNews = {
@@ -26,7 +27,7 @@ const featuredNews = {
   category: 'updates',
   date: new Date('2024-01-15'),
   readTime: 5,
-  image: '/images/bg-other.png',
+  image: asset('/images/bg-other.png'),
   featured: true
 }
 
