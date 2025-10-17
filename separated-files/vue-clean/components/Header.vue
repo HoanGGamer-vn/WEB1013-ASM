@@ -40,7 +40,7 @@
           <span class="music-icon">♪</span>
         </button>
         <button class="avatar" aria-label="User" @click="showLogin = true">
-          <img src="/images/btn-login.png" alt="User Avatar" />
+          <img src="/WEB1013-ASM/images/btn-login.png" alt="User Avatar" />
         </button>
       </div>
     </div>
