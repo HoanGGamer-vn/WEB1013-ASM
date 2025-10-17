@@ -3,21 +3,32 @@ const CACHE_NAME = 'error404-pwa-v1.0.0'
 const STATIC_CACHE_NAME = 'error404-static-v1'
 const DYNAMIC_CACHE_NAME = 'error404-dynamic-v1'
 
-// Files to cache immediately
+// Determine base path dynamically (so service worker works under GitHub Pages subpath)
+const BASE_PATH = (() => {
+  try {
+    // registration.scope ends with a trailing slash
+    const scope = (self.registration && self.registration.scope) ? new URL(self.registration.scope).pathname : '/'
+    return scope
+  } catch (e) {
+    return '/'
+  }
+})()
+
+// Files to cache immediately (prefix with BASE_PATH)
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/src/main.ts',
-  '/src/App.vue',
-  '/src/assets/main.css',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
+  BASE_PATH,
+  BASE_PATH + 'index.html',
+  BASE_PATH + 'manifest.json',
+  BASE_PATH + 'src/main.ts',
+  BASE_PATH + 'src/App.vue',
+  BASE_PATH + 'src/assets/main.css',
+  BASE_PATH + 'icons/icon-192x192.png',
+  BASE_PATH + 'icons/icon-512x512.png',
   // Core pages
-  '/news',
-  '/characters', 
-  '/world',
-  '/story'
+  BASE_PATH + 'news',
+  BASE_PATH + 'characters', 
+  BASE_PATH + 'world',
+  BASE_PATH + 'story'
 ]
 
 // API endpoints to cache
@@ -28,9 +39,9 @@ const API_CACHE_PATTERNS = [
 
 // Images and media to cache
 const MEDIA_CACHE_PATTERNS = [
-  '/images/',
-  '/audio/',
-  '/video/'
+  BASE_PATH + 'images/',
+  BASE_PATH + 'audio/',
+  BASE_PATH + 'video/'
 ]
 
 // Install event - cache static assets
@@ -164,17 +175,17 @@ async function getOfflineFallback(request) {
   
   // Return offline page for navigation requests
   if (request.mode === 'navigate') {
-    const offlinePage = await caches.match('/offline.html')
+    const offlinePage = await caches.match(BASE_PATH + 'offline.html')
     if (offlinePage) {
       return offlinePage
     }
     // Fallback to cached index
-    return caches.match('/')
+    return caches.match(BASE_PATH)
   }
   
   // Return offline image for image requests
   if (request.destination === 'image') {
-    return caches.match('/images/offline-placeholder.png')
+    return caches.match(BASE_PATH + 'images/offline-placeholder.png')
   }
   
   // Return basic offline response
